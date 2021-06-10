@@ -1,5 +1,4 @@
-._logoContainer{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+._logoContainer > img{
+    width: 90px;
+    height: 38px;
 }
