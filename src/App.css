@@ -1,7 +1,8 @@
 .App {
   text-align: center;
-  padding-left: 34px;
-  padding-top: 22px;
-  padding-right: 34px;
+}
+
+._separatorLine{
+  margin-top: 25px;
 }
 

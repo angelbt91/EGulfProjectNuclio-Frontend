@@ -9,4 +9,7 @@
     align-items: center;
     flex-direction:row;
     justify-content: space-between;
+    padding-left: 34px;
+    padding-top: 22px;
+    padding-right: 34px;
 }
