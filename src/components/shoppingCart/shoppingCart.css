@@ -1,11 +1,18 @@
-._shoppingButton{
-    background-color: #FFFFFF;
-    width: 194px;
-    height: 40px; 
-    margin-left: 34px;
-    display: flex;
+._shopcartContainer{
+    display:flex;
     flex-direction: row;
     align-items: center;
+}
+
+._shoppingButton{
+    background-color: #FFFFFF;
+    width: 145px;
+    height: 40px; 
+    margin-left: 34px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    border:none;
 }
 
 ._shoppingButton > img{
@@ -27,20 +34,22 @@
     margin-left: 12px;
 }
 
-._contador{
+._shopcartCounter{
     width: 33px;
     height: 22px;
-    border: 2px solid #DFBDBF;
+    border: 2px solid #dfbdbf;
     box-sizing: border-box;
     border-radius: 12px;
-    margin-left: 12px;  
     font-family: Roboto;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 14px;
     /* identical to box height */
-    align-items: center;
+    justify-content: center; /*JUSTIFY CONTENT ES PARA JUSTIFICARLO DE ARRIBA A ABAJO EN UN FLEX! */
+    display: flex;
+    align-items: center; /*ALIGN ITEMS ES PARA JUSTIFICARLO DE DERECHA A IZQUIERDA EN UN FLEX! */
     letter-spacing: 0.02em;
-    color: #D03543;
+
+    color: #D03543
 }

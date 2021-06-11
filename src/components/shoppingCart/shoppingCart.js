@@ -3,12 +3,12 @@ import Carrito from '../../assets/carrito.png';
 
 const ShoppingCart = () => {
     return(
-        <div className="shopcartContainer">
+        <div className="_shopcartContainer">
             <button className="_shoppingButton">
                 <img src={Carrito}></img>
                 <span className ="_spanShopping">SHOPPING CART</span>
-                <span className ="_contador">2</span>
             </button>
+            <span className="_shopcartCounter">2</span>
         </div>
     )
 }
