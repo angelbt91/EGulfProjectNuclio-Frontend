@@ -1,6 +1,8 @@
 import './header.css';
 import Logo from '../logo/logo';
 import Searcher from '../searcher/searcher';
+import Notifications from '../notifications/notifications';
+import ShoppingCart from '../shoppingCart/shoppingCart';
 
 const Header = () => {
     return(
@@ -8,6 +10,10 @@ const Header = () => {
             <div className = "_leftHeader">
                 <Logo />
                 <Searcher />
+            </div>
+            <div className ="_rightHeader">
+                <Notifications />
+                <ShoppingCart />
             </div>
         </div>
     )
