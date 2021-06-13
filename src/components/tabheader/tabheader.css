@@ -1,0 +1,31 @@
+._tabheadContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+._tabheadContainer > div{
+    height: 58px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+
+    color: #798591;
+
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin-left: 37px;
+    margin-right: 37px;
+}
+
