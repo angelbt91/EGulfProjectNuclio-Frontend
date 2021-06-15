@@ -6,7 +6,7 @@
 }
 
 ._tabheadContainer > div{
-    height: 58px;
+    height: 35px;
     font-family: Roboto;
     font-style: normal;
     font-weight: 500;
@@ -15,7 +15,7 @@
     /* identical to box height */
 
     display: flex;
-    align-items: center;
+    margin-top: 28px;
     letter-spacing: 0.02em;
 
     color: #798591;

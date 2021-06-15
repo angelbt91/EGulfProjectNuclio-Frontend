@@ -17,7 +17,7 @@ const TabHeader = () => {
         <div className = "_tabheadContainer">
             {optionsArray.map((option)=> {
                 return (
-                    <div class="tab" onMouseEnter={Rosificacion} onMouseLeave={Blackificacion}>{option}</div>
+                    <div class="tab" onMouseEnter={Rosificacion} onMouseLeave={Blackificacion}><span id="notthediv">{option}</span></div>
                 )
             })}
         </div>
