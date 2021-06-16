@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "name": "God of War",
+        "img": "https://i.pinimg.com/originals/ae/99/6c/ae996cb6e74018a31c30eb4eb6f4363e.png",
+        "iduser": "Mariquitos",
+        "substate": "True",
+        "initprice": "60€",
+        "rating": 80
+    },
+    {   
+        "id": 2,
+        "name": "Escobilla",
+        "img": "https://i.pinimg.com/736x/cd/17/35/cd17355cfc339b66440841cc8346bf74.jpg",
+        "iduser": "El Cigala",
+        "substate": "True",
+        "initprice": "60€",
+        "rating": 42
+    },
+    {
+        "id": 3,
+        "name": "Bascula",
+        "img": "https://api.ggmgastro.com/img/600/900/resize/media/catalog/product/W/G/WG6_d_masse_7bdc.jpg",
+        "iduser": "Raul",
+        "substate": "True",
+        "initprice": "45€",
+        "rating": 69
+    },
+    {
+        "id": 4,
+        "name": "Taladro",
+        "img": "https://cmc.pt/wp-content/uploads/2018/07/BSB18G2LI-152C.jpg",
+        "iduser": "Vicente",
+        "substate": "False",
+        "initprice": "69€",
+        "rating": 80
+    },
+    {
+        "id": 5,
+        "name": "Coca-Cola",
+        "img": "https://valsegura.com/wp-content/uploads/2016/02/cc-33cl.jpg",
+        "iduser": "Sara",
+        "substate": "True",
+        "initprice": "60€",
+        "rating": 40
+    }
+]
