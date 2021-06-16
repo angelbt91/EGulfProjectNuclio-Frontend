@@ -1,23 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/header/header';
+import TabHeader from './components/tabheader/tabheader';
+import AdBanner from './components/adbanner/adbanner';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <hr className="_separatorLine1" size="1" width="20000 px" color="#D9D9D9"></hr>
+      <TabHeader />
+      <hr className="_separatorLine2" size="1" width="20000 px" color="#D9D9D9"></hr>
+      <AdBanner />
     </div>
   );
 }
