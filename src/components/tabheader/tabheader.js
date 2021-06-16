@@ -3,6 +3,7 @@ import './tabheader.css'
 function Rosificacion(event){
     event.target.style.color = '#DA4167';
     event.target.style.borderBottom = "4px solid #DA4167";
+    event.target.style.transition = "0.1s"
 }
 
 function Blackificacion(event){

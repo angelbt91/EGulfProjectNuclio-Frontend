@@ -1,0 +1,30 @@
+._adContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    position: relative;
+}
+
+._adContainer > img {
+    width: 1078px;
+    height: 266px;
+}
+
+._adContainer > span {
+    position: absolute;
+    top: 20px;
+    left: 1180px;
+    z-index: 9;
+    width: 264px;
+    height: 76px;
+    color: #600F16;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 38px;
+    text-align: right;
+    font-feature-settings: 'salt' on, 'liga' off;
+}
