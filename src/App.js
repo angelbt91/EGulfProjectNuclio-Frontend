@@ -2,6 +2,7 @@ import './App.css';
 import Header from './components/header/header';
 import TabHeader from './components/tabheader/tabheader';
 import AdBanner from './components/adbanner/adbanner';
+import Roll from './components/roll/roll';
 
 function App() {
   return (
@@ -11,6 +12,8 @@ function App() {
       <TabHeader />
       <hr className="_separatorLine2" size="1" width="20000 px" color="#D9D9D9"></hr>
       <AdBanner />
+      <Roll tittle="Anuncios"/>
+      <Roll tittle="Televisores"/>
     </div>
   );
 }
