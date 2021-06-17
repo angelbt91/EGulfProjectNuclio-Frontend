@@ -1,16 +1,15 @@
 import './botonlogin.css'
-import { useState } from 'react';
+import { useHistory } from "react-router-dom";
 
 
 
 const LoginButton = () => {
 
-    const [login, setLogin] = useState(false);
-    console.log(login);
+    const history = useHistory();
 
     return(
         <div className="_loginContainer">
-            <button onClick = {() => setLogin(!login)}> <span>{login ? 'LOGED' : 'NO LOGED'}</span></button>
+            <button onClick = {() => history.push('/login')}> <span>LOGIN</span></button>
         </div>
         
     );
