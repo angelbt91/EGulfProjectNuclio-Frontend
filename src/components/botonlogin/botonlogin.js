@@ -5,18 +5,16 @@ import { useState } from 'react';
 
 const LoginButton = () => {
 
-    const [login, setLogin] = useState(true);
+    const [login, setLogin] = useState(false);
     console.log(login);
-    
-    
 
     return(
-        <div className="button">
-            <p>{login ? 'Estado: Loged' : 'Estado: No loged'}</p>
-            <button onClick = {() => setLogin(!login)}> {login ? 'Loged' : 'No loged'}</button>
+        <div className="_loginContainer">
+            <button onClick = {() => setLogin(!login)}> <span>{login ? 'LOGED' : 'NO LOGED'}</span></button>
         </div>
         
     );
     
 };
+
 export default LoginButton;
