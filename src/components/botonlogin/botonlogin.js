@@ -18,4 +18,5 @@ const LoginButton = () => {
     
 };
 
+//necesario arreglar el boton para que cuando le des a logout se cambie a login y que cuando cambie de pagina se quede en logout
 export default LoginButton;

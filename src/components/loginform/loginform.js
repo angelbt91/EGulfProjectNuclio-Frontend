@@ -28,7 +28,7 @@ const LoginForm = () => {
             .catch((errors) => alert(JSON.stringify(errors)));
         }
     }
-    //Necesita fixearse pq deberia salir solo durante unos segundos 
+    //Necesita fixearse pq deberia salir solo durante unos segundos, necesario fixear alertas 
     return (
         <div className = "_loginformContainer">
             <span> Login </span>
