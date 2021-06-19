@@ -1,4 +1,4 @@
-._loginContainer > button{
+._loginbuttonContainer > button{
     margin-left: 19px;
     width: 141px;
     height: 38px;
@@ -6,7 +6,7 @@
     border: none; 
 }
 
-._loginContainer > button > span {
+._loginbuttonContainer > button > span {
     width: 48px;
     height: 14px;
     font-family: Roboto;

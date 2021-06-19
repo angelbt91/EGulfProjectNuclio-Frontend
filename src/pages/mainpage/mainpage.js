@@ -8,9 +8,9 @@ const MainPage = () => {
     return(
         <div className="App">
             <Header />
-            <hr className="_separatorLine1" size="1" width="20000 px" color="#D9D9D9"></hr>
+            <hr className="_separatorLine1" size="1" width="99.9%" color="#D9D9D9"></hr>
             <TabHeader />
-            <hr className="_separatorLine2" size="1" width="20000 px" color="#D9D9D9"></hr>
+            <hr className="_separatorLine2" size="1" width="99.9%" color="#D9D9D9"></hr>
             <AdBanner />
             <Roll tittle="Anuncios"/>
             <Roll tittle="Televisores"/>
