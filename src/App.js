@@ -14,8 +14,36 @@ function App() {
       <AdBanner />
       <Roll tittle="Anuncios"/>
       <Roll tittle="Televisores"/>
+      {/* <div className="test_container">
+        <div className="card">
+          <div className="img">
+            img
+          </div>
+          <div className="description">
+            description
+          </div>
+        </div>
+      </div> */}
     </div>
   );
 }
+/* test_container
+width: 200px;
+height: 200px;
+border: 1px solid black;
 
+card{
+  display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid black;
+}
+img{
+
+   width: 200px; o 100%
+    height: 200px;
+    border: 1px solid black; 
+}*/
 export default App;
