@@ -6,7 +6,7 @@ const Searcher = () => {
         <div className= "_searcherContainer">
             <div className= "_searchContainer" >
                 <input type = "text" placeholder="Buscar cualquier artículo"></input>
-                <button type = "submit"><img src={Lupita}></img></button>
+                <button type = "submit"><img src={Lupita} alt = "searchButton"></img></button>
             </div>
             <button type = "submit"><span>BUSCAR</span></button>
         </div>
