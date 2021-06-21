@@ -1,0 +1,1 @@
+import './botonregistro.css';
