@@ -4,7 +4,7 @@ import Anunsio from '../../assets/anuncio.png';
 const AdBanner = () => {
     return (
         <div className="_adContainer">
-            <img src={Anunsio}></img>
+            <img src={Anunsio} alt=""></img>
             <span>Cada semana, nuevas ofertas</span>
         </div>
     )

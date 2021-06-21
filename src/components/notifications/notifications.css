@@ -1,7 +1,8 @@
 ._notifContainer{
     display:flex;
     flex-direction: row;
-    align-items:center
+    align-items:center;
+    margin-left: 50px;
 }
 
 ._notifContainer > button > img {
