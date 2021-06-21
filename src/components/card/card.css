@@ -1,69 +1,59 @@
-.main_card{
-    background-color: blue;
-    position: relative;
+.container {
     width: 241px;
     height: 224px;
-    margin-left: 19px;
-    margin-right: 19px;
-    border-radius: 10px;
-    transition: 300ms;
-    
-}
-.main_banner{
-    background-color: rgba(165, 165, 165, 0.568);
-    width: 241px;
-    height: 53px;
-    position: absolute;
-    bottom: 0;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    z-index: 500;
+    justify-content: flex-end;
+    position: relative;
+    transition: 300ms;
+    border-radius: 10px;
+}
+.banner{
+    background-color: rgba(0, 0, 0, 0.445);
+    width: 241px;
+    height: 54px;
+    position: absolute;
+    z-index: 90;
+    color: white;
+    transition: 300ms;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    transition: 300ms;
-    
     
 }
-.banner_info{
-    margin: 6%;
-}
-.banner_bits{
-    margin-right: 6%;
-    color: crimson;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 300ms;
-}
-.banner_info>p{
-    height: 22px;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 19px;
-    margin-top: 6%;
-    margin-bottom: 6%;
-    transition: 250ms;
-    
-}
-.main_card>img{
+img{
     width: 241px;
-    height: 244px;
-    z-index: 10;
-    position: absolute;
-    bottom: 0px;
+    height: 224px;
+    z-index: 2;
     border-radius: 10px;
 }
-.main_card:hover{
+.banner_info{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    width: 241px;
+    height: 54px;
+}
+.banner_left{
+    display: block;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.banner_left>p{
+    line-height:0.4;
+    width: 98px;
+
+}
+.banner_price{
+    color: #DA4167;
+    font-weight: bold;
+    width: 68px;
+}
+.container:hover{
     box-shadow: 5px 10px 18px #464646;
 }
-.main_card:hover .main_banner{
-    background-color: rgba(41, 41, 41, 0.767);
+.container:hover .banner{
+    background-color: rgba(41, 41, 41, 0.967);
     color: white;
-    font-size: 20px;
-}
-.main_card:hover .banner_bits{
-    font-size: 24px;
-}
-.main_card:hover .banner_info>p{
-    font-size: 20px;
+    font-size: 17px;
 }

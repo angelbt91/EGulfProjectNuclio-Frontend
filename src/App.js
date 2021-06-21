@@ -7,17 +7,14 @@ import Footer from './components/footer/footer';
 function App() {
   return (
     <div className="_appBody">
-      <Router>
-        <Switch>
-          <Route exact path = "/login">
-            <LoginPage />
-          </Route>
-          <Route exact path = "/">
-            <MainPage />
-            <Footer />
-          </Route>
-        </Switch>
-      </Router>
+      <Header />
+      <hr className="_separatorLine1" size="1" width="20000 px" color="#D9D9D9"></hr>
+      <TabHeader />
+      <hr className="_separatorLine2" size="1" width="20000 px" color="#D9D9D9"></hr>
+      <AdBanner />
+      <Roll tittle="Anuncios"/>
+      <Roll tittle="Televisores/>
+      <Footer />
     </div>
   );
 }
