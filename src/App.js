@@ -3,6 +3,7 @@ import Header from './components/header/header';
 import TabHeader from './components/tabheader/tabheader';
 import AdBanner from './components/adbanner/adbanner';
 import Roll from './components/roll/roll';
+import Footer from './components/footer/footer';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <AdBanner />
       <Roll tittle="Anuncios"/>
       <Roll tittle="Televisores"/>
+      <Footer />
     </div>
   );
 }
