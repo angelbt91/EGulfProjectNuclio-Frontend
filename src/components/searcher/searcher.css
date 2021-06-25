@@ -38,7 +38,7 @@
     width: 500px;
     height: 14px;
     margin-left: 19px;
-    font-family: Roboto;
+    font-family: url('../../assets/Roboto-Thin.ttf');
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
