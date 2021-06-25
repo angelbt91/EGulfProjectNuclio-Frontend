@@ -4,23 +4,29 @@
     align-items: center;
     justify-content: center;
     margin-top: 20px;
-    position: relative;
 }
 
-._adContainer > img {
+._adContainer > div {
     width: 1078px;
     height: 266px;
+    background: url('../../assets/anuncio.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
-._adContainer > span {
-    position: absolute;
-    top: 20px;
-    left: 1180px;
+._adContainer > div > span {
+    width: 264px;
+    height: 76px;
+    padding-top: 20px;
+    padding-right: 26px;
     z-index: 9;
     width: 264px;
     height: 76px;
     color: #600F16;
-    font-family: Inter;
+    font-family: url('../../assets/Inter-Light.ttf');
     font-style: normal;
     font-weight: 600;
     font-size: 36px;

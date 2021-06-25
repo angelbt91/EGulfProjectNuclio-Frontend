@@ -7,7 +7,7 @@
 
 ._tabheadContainer > div{
     height: 35px;
-    font-family: Roboto;
+    font-family: url('../../assets/Roboto-Thin.ttf');
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
