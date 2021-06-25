@@ -1,14 +1,13 @@
-import './adbanner.css';
-import Anunsio from '../../assets/anuncio.png';
+import "./adbanner.css";
 
 const AdBanner = () => {
-    return (
-        <div className="_adContainer">
-            <div >
-                <span>Cada semana, nuevas ofertas</span>
-            </div>
-        </div>
-    )
-}
+  return (
+    <div className="_adContainer">
+      <div>
+        <span>Cada semana, nuevas ofertas</span>
+      </div>
+    </div>
+  );
+};
 
 export default AdBanner;

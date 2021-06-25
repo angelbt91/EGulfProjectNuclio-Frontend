@@ -1,13 +1,15 @@
-import './notifications.css'
-import Campana from '../../assets/campana.png';
+import "./notifications.css";
+import Bell from "../../assets/campana.png";
 
-const Notifications = () =>{
-    return(
-        <div className = "_notifContainer">
-            <button type="submit"><img src={Campana} alt=""></img></button>
-            <span class="dot"></span>
-        </div>
-    );
-}
+const Notifications = () => {
+  return (
+    <div className="_notifContainer">
+      <button type="submit">
+        <img src={Bell} alt="" />
+      </button>
+      <span className="dot" />
+    </div>
+  );
+};
 
 export default Notifications;
