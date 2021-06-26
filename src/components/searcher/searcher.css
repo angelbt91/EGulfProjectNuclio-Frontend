@@ -1,0 +1,62 @@
+._searcherContainer {
+  display: flex;
+  align-items: center;
+}
+
+._searcherContainer > button {
+  margin-left: 19px;
+  width: 141px;
+  height: 38px;
+  background: #da4167;
+  border: none;
+}
+
+._searcherContainer > button > span {
+  width: 48px;
+  height: 14px;
+  font-family: Roboto, serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+
+._searchContainer {
+  width: 543px;
+  height: 38px;
+  border: 1px solid #d9d9d9;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+._searchContainer > input {
+  width: 500px;
+  height: 14px;
+  margin-left: 19px;
+  font-family: url("../../assets/Roboto-Thin.ttf");
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+  border: 0;
+  outline-width: 0;
+  background-color: #ffffff;
+}
+
+._searchContainer > button {
+  border: none;
+  background-color: #ffffff;
+  margin-right: 12px;
+}
+
+._searchContainer > button > img {
+  width: 14px;
+  height: 14px;
+}

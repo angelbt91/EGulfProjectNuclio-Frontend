@@ -1,0 +1,7 @@
+._loginContainer{
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    height: 600px;
+    justify-content: center;
+}
