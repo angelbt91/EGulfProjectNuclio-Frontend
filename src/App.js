@@ -6,12 +6,18 @@ import ProductPage from "./pages/productpage/productpage";
 import Header from "./components/header/header";
 import "./App.css";
 
+//useHistory solo se usa dentro de componentes dentro de un Router!!
 function App() {
   return (
     <div className="_appBody">
-      <Header />
-      <hr className="_separatorLine1" size="1" width="99.9%" color="#D9D9D9" />
       <Router>
+        <Header />
+        <hr
+          className="_separatorLine1"
+          size="1"
+          width="99.9%"
+          color="#D9D9D9"
+        />
         <Switch>
           <Route exact path="/login">
             <LoginPage />
