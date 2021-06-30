@@ -29,8 +29,8 @@ function App() {
             <ProductPage />
           </Route>
         </Switch>
+        <Footer />
       </Router>
-      <Footer />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import "./productpage.css";
 import ProductGallery from "../../components/productGallery/productGallery";
 import ProductsList from "../../components/comp/product.json";
 import ProductSheet from "../../components/productsheet/productSheet";
+import Roll from "../../components/roll/roll";
 
 const ProductPage = () => {
   return (
@@ -17,6 +18,9 @@ const ProductPage = () => {
           iduser={ProductsList[5].iduser}
           rating={ProductsList[5].rating}
         />
+        <div className="rollproductContainer">
+          <Roll title="Artículos similares" />
+        </div>
       </div>
     </div>
   );
