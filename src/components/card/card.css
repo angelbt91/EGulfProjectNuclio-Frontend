@@ -21,7 +21,7 @@
     border-bottom-right-radius: 10px;
     
 }
-img{
+.cardImage{
     width: 241px;
     height: 224px;
     z-index: 2;

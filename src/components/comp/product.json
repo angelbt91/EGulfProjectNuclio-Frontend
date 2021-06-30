@@ -43,5 +43,15 @@
         "substate": "True",
         "initprice": "60€",
         "rating": 40
+    },
+    {
+        "id": 6,
+        "name": "Kitchen Helper tower",
+        "description":"Kitchen step stool, safety stool or kids step stool is adjustable kitchen chair or Montessori tower for toddler. Step stool or learning stool for kids will be amazing kitchen stool and best kitchen helper. Kitchen helper tower is designed according to Montessori furniture principles of independace building. BOTH top step und climbing step of activity tower are adjustable in 3 levels so it grows together with your child.",
+        "img": ["https://riasdegalicia.com/wp-content/uploads/2021/06/patrick-perkins-3wylDrjxH-E-unsplash-1.png","https://riasdegalicia.com/wp-content/uploads/2021/06/patrick-perkins-iRiVzALa4pI-unsplash-1.png","https://riasdegalicia.com/wp-content/uploads/2021/06/daniil-silantev-nBuiLbz_j4A-unsplash-1.png","https://riasdegalicia.com/wp-content/uploads/2021/06/patrick-perkins-q6IewsLf4Uo-unsplash-1.png","https://riasdegalicia.com/wp-content/uploads/2021/06/patrick-perkins-q6IewsLf4Uo-unsplash-1.png"],
+        "iduser": "Sara",
+        "substate": "True",
+        "initprice": "38,5",
+        "rating": 40
     }
 ]
