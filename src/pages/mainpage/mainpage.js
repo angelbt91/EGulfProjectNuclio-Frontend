@@ -15,7 +15,6 @@ const MainPage = () => {
       <AdBanner />
       <Roll title="Anuncios" />
       <Roll title="Televisores" />
-      <Footer />
     </div>
   );
 };
