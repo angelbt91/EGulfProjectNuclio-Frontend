@@ -16,8 +16,7 @@ const ProductPage = () => {
                 <BreadCrumber />
                 <ProductGallery />
                 <ProductSheet title={ProductsList[5].name} description={ProductsList[5].description} initprice={ProductsList[5].initprice} iduser= {ProductsList[5].iduser}  rating= {ProductsList[5].rating}/>
-            </div>        
-        <Footer />         
+            </div>                
         </div>
     );
 };

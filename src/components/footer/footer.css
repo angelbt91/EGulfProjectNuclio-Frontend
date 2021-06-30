@@ -79,3 +79,8 @@ footer > ._logoContainer > img {
   height: 25px;
   width: 25px;
 }
+.logoContainer{
+  display: flex;
+  justify-content: center;
+  margin: 36px;
+}
