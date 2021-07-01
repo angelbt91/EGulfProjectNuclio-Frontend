@@ -8,8 +8,11 @@ import YouTubeLogo from "./../../assets/youtube.svg";
 const Footer = () => {
   return (
     <footer>
-      <hr></hr>
-      <Logo />
+      <hr />
+      <div className="logoContainer">
+        <Logo />
+      </div>
+
       <ul className="nav-links">
         <li>
           <a href="#">Comprar</a>
@@ -27,7 +30,7 @@ const Footer = () => {
           <a href="#">Politica de Privacidad</a>
         </li>
       </ul>
-      <hr></hr>
+      <hr />
       <div className="copyright-social-container">
         <p>&copy; 2020 Landify UI Kit. All rights reserved</p>
         <ul className="social">
@@ -37,7 +40,7 @@ const Footer = () => {
                 src={InstagramLogo}
                 className="instagram-logo"
                 alt="Instagram Logo"
-              ></img>
+              />
             </a>
           </li>
           <li>
@@ -46,7 +49,7 @@ const Footer = () => {
                 src={FacebookLogo}
                 className="facebook-logo"
                 alt="Facebook Logo"
-              ></img>
+              />
             </a>
           </li>
           <li>
@@ -55,7 +58,7 @@ const Footer = () => {
                 src={TwitterLogo}
                 className="twitter-logo"
                 alt="Twitter Logo"
-              ></img>
+              />
             </a>
           </li>
           <li>
@@ -64,7 +67,7 @@ const Footer = () => {
                 src={YouTubeLogo}
                 className="youtube-logo"
                 alt="YouTube Logo"
-              ></img>
+              />
             </a>
           </li>
         </ul>

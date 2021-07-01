@@ -1,31 +1,35 @@
-._tabheadContainer{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    height:62px;
+._tabheadContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 62px;
 }
 
-._tabheadContainer > div{
-    height: 35px;
-    font-family: url('../../assets/Roboto-Thin.ttf');
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
-    /* identical to box height */
+._tabheadContainer > div {
+  height: 31px;
+  font-family: url("../../assets/Roboto-Thin.ttf");
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  /* identical to box height */
 
-    display: flex;
-    margin-top: 28px;
-    letter-spacing: 0.02em;
+  display: flex;
+  margin-top: 28px;
+  letter-spacing: 0.02em;
 
-    color: #798591;
+  color: #798591;
 
-
-    /* Inside Auto Layout */
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-    margin-left: 37px;
-    margin-right: 37px;
+  /* Inside Auto Layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin-left: 37px;
+  margin-right: 37px;
 }
 
+._tabheadContainer > div:hover {
+  color: #da4167;
+  border-bottom: 4px solid #da4167;
+  transition: 0.1s;
+}

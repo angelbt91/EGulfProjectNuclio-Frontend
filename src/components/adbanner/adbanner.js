@@ -1,5 +1,4 @@
 import "./adbanner.css";
-import Anuncio from "../../assets/anuncio.png";
 
 const AdBanner = () => {
   return (
