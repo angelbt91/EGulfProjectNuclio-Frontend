@@ -12,7 +12,7 @@ const Card = ({ img, name, rating, initprice }) => {
   return (
     <div className="container">
       <Link to="/Product/:id">
-        <img src={img} alt="" />
+        <img src={img} className="cardImage" alt="" />
       </Link>
 
       <div className="banner">
