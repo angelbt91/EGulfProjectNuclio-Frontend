@@ -12,7 +12,7 @@ const Footer = () => {
       <div className="logoContainer">
         <Logo />
       </div>
-      
+
       <ul className="nav-links">
         <li>
           <a href="#">Comprar</a>

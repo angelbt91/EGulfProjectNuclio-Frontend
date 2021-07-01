@@ -6,7 +6,6 @@ import ProductPage from "./pages/productpage/productpage";
 import Header from "./components/header/header";
 import "./App.css";
 
-//useHistory solo se usa dentro de componentes dentro de un Router!!
 function App() {
   return (
     <div className="_appBody">
