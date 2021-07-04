@@ -1,15 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import React, { useState } from "react";
 import Heart from "../../assets/heart.png";
 import Star from "../../assets/star.png";
 import HeartRed from "../../assets/heartRed.png";
-
+import ProductPage from "../../pages/productpage/productpage";
 import("./card.css");
 
 const Card = ({ img, name, rating, initprice, id }) => {
  const url = "/product/"+ id
   const [condition, setcondition] = useState(true);
   return (
+    <Router>
       <div className="container">
         <Link to = {url}>
           <img src={img} className="cardImage" alt="" />
@@ -31,7 +32,11 @@ const Card = ({ img, name, rating, initprice, id }) => {
             </div>
           </div>
         </div>    
-      </div>    
+      </div> 
+      <Switch>
+          <Route path="/product/:id" children={<ProductPage />} />
+        </Switch>  
+    </Router> 
     );
   };
 
