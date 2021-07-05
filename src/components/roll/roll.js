@@ -14,6 +14,7 @@ const Roll = ({ title }) => {
             name={product.name}
             rating={product.rating}
             initprice={product.initprice}
+            id={product.id}
           />
         ))}
       </div>
