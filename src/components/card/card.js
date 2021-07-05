@@ -41,9 +41,6 @@ const Card = ({ img, name, rating, initprice, id }) => {
           </div>
         </div>
       </div>
-      {/* <Switch>
-        <Route path="/product/:id" children={<ProductPage />} />
-      </Switch> */}
     </Router>
   );
 };
