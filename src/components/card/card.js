@@ -20,7 +20,7 @@ const Card = ({ img, name, rating, initprice, id }) => {
   return (
     <Router>
       <div className="container">
-        <Link to={url} onClick={() => history.push("/productpage/:id")}>
+        <Link to={url} onClick={() => history.push("/productpage/" + id)}>
           <img src={img} className="cardImage" alt="" />
         </Link>
         <div className="banner">
