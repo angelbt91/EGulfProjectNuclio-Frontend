@@ -32,6 +32,7 @@ const LoginForm = () => {
         .catch((errors) => console.log(JSON.stringify(errors)));
     }
   };
+
   return (
     <div className="_loginformContainer">
       <span> Login </span>

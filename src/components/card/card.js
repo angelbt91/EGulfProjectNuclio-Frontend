@@ -1,4 +1,10 @@
-import { Link, BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  Link,
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useHistory,
+} from "react-router-dom";
 import React, { useState } from "react";
 import Heart from "../../assets/heart.png";
 import Star from "../../assets/star.png";
@@ -7,12 +13,14 @@ import ProductPage from "../../pages/productpage/productpage";
 import("./card.css");
 
 const Card = ({ img, name, rating, initprice, id }) => {
- const url = "/product/"+ id
-  const [condition, setcondition] = useState(true);
+  const history = useHistory();
+  const url = "/productpage/" + id;
+  const [condition, setCondition] = useState(true);
+
   return (
     <Router>
       <div className="container">
-        <Link to = {url}>
+        <Link to={url} onClick={() => history.push("/productpage/:id")}>
           <img src={img} className="cardImage" alt="" />
         </Link>
         <div className="banner">
@@ -23,7 +31,7 @@ const Card = ({ img, name, rating, initprice, id }) => {
               <img className="star_icon" src={Star} alt="icon-heart" />
             </div>
             <p className="banner_price">{initprice}</p>
-            <div onClick={() => setcondition(!condition)}>
+            <div onClick={() => setCondition(!condition)}>
               <img
                 className="heart_icon"
                 src={condition ? Heart : HeartRed}
@@ -31,13 +39,9 @@ const Card = ({ img, name, rating, initprice, id }) => {
               />
             </div>
           </div>
-        </div>    
-      </div> 
-      <Switch>
-          <Route path="/product/:id" children={<ProductPage />} />
-        </Switch>  
-    </Router> 
-    );
-  };
-
+        </div>
+      </div>
+    </Router>
+  );
+};
 export default Card;
