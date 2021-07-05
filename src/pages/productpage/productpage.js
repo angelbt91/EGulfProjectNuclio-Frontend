@@ -4,18 +4,35 @@ import ProductGallery from "../../components/productGallery/productGallery";
 import ProductsList from "../../components/comp/product.json";
 import ProductSheet from "../../components/productsheet/productSheet";
 import Roll from "../../components/roll/roll";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
 
 const ProductPage = () => {
+  const { id } = useParams();
+  const [product, setProduct] = useState({
+    title: " ",
+    description: " ",
+    initprice: " ",
+    iduser: " ",
+    rating: " ",
+  });
+
+  useEffect(() => {
+    fetch(`http://localhost:5001/products/${id}`)
+      .then((response) => response.json())
+      .then((json) => setProduct(json));
+  }, []);
+
   return (
     <div>
       <div className="productContainer">
         <BreadCrumber />
         <ProductGallery />
         <ProductSheet
-          title={ProductsList[5].name}
-          description={ProductsList[5].description}
-          initprice={ProductsList[5].initprice}
-          iduser={ProductsList[5].iduser}
+          title={product.name}
+          description={product.description}
+          initprice={product.startPrice}
+          iduser={product.sellerId}
           rating={ProductsList[5].rating}
         />
         <div className="rollproductContainer">
