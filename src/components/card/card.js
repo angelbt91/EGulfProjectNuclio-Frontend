@@ -11,7 +11,7 @@ const Card = ({ img, name, rating, initprice }) => {
   const [condition, setcondition] = useState(true);
   return (
     <div className="container">
-      <Link to="/Product/:id">
+      <Link to="/productPage">
         <img src={img} className="cardImage" alt="" />
       </Link>
 
