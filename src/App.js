@@ -4,6 +4,7 @@ import LoginPage from "./pages/loginpage/loginpage";
 import MainPage from "./pages/mainpage/mainpage";
 import ProductPage from "./pages/productpage/productpage";
 import Header from "./components/header/header";
+import FavouritePage from "./pages/favouritepage/favouritepage";
 import "./App.css";
 
 function App() {
@@ -26,6 +27,9 @@ function App() {
           </Route>
           <Route exact path="/productpage/:id">
             <ProductPage />
+          </Route>
+          <Route exact path="/favouritePage">
+            <FavouritePage />
           </Route>
         </Switch>
         <Footer />
