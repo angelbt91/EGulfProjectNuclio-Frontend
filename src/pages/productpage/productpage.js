@@ -21,17 +21,18 @@ const ProductPage = () => {
     <div>
       <div className="productContainer">
         <BreadCrumber />
-        <ProductGallery URLimages={product.images} />
+        {
+          <ProductGallery /> /*//TODO: URLimages={product.images} para pasar las imagenes desde productGallery */
+        }
         {product && (
           <ProductSheet
             title={product.productId.name}
             description={product.productId.description}
             initprice={product.startingPrice}
-            //iduser={product.sellerId.name}
-            rating={ProductsList[5].rating}
+            iduser={product.productId.sellerId.name}
+            rating={ProductsList[5].rating} //TODO: cuando exista el rating de user, añadirlo aquí (y popular en back)
           />
         )}
-
         <div className="rollproductContainer">
           <Roll title="Artículos similares" />
         </div>
