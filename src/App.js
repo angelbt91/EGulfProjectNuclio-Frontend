@@ -4,7 +4,10 @@ import LoginPage from "./pages/loginpage/loginpage";
 import MainPage from "./pages/mainpage/mainpage";
 import ProductPage from "./pages/productpage/productpage";
 import Header from "./components/header/header";
+import FavouritePage from "./pages/favouritepage/favouritepage";
+import CreateProductForm from "./pages/productformpage/productformpage";
 import "./App.css";
+import ProductFormPage from "./pages/productformpage/productformpage";
 
 function App() {
   return (
@@ -24,8 +27,14 @@ function App() {
           <Route exact path="/">
             <MainPage />
           </Route>
-          <Route exact path="/productPage">
+          <Route exact path="/productpage/:id">
             <ProductPage />
+          </Route>
+          <Route exact path="/favouritePage">
+            <FavouritePage />
+          </Route>
+          <Route exact path="/productformpage">
+            <ProductFormPage />
           </Route>
         </Switch>
         <Footer />
