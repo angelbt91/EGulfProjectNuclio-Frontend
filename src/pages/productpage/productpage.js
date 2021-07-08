@@ -12,6 +12,7 @@ const ProductPage = () => {
         <BreadCrumber />
         <ProductGallery />
         <ProductSheet
+          id={ProductsList[5].id}
           title={ProductsList[5].name}
           description={ProductsList[5].description}
           initprice={ProductsList[5].initprice}
