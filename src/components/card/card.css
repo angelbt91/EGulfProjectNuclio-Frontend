@@ -9,12 +9,11 @@
   position: relative;
 
   transition: 300ms;
-  /* border-radius: 10px; */
+
   margin-left: 70px;
   float: left;
 }
 .banner {
-  /* background-color: rgba(0, 0, 0, 0.445); */
   background-color: rgba(255, 255, 255, 0.63);
   opacity: 0.9;
   width: 241px;
@@ -24,14 +23,11 @@
   z-index: 90;
   color: black;
   transition: 300ms;
-  /*  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px; */
 }
 .cardImage {
   width: 241px;
   height: 224px;
   z-index: 2;
-  /* border-radius: 10px; */
 }
 .banner_info {
   display: flex;
