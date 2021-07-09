@@ -40,7 +40,6 @@
   display: block;
   flex-direction: column;
   justify-content: space-between;
-  text-align: center;
 }
 .banner_left > p {
   line-height: 0.4;
@@ -51,7 +50,7 @@
   color: #da4167;
   font-weight: bold;
   width: 68px;
-  padding-right: 3rem;
+  padding-right: 1rem;
 }
 .container:hover {
   box-shadow: 5px 10px 18px #464646;
