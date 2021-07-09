@@ -26,7 +26,7 @@ const Card = ({ img, name, rating, initprice, id }) => {
         <div className="banner">
           <div className="banner_info">
             <div className="banner_left">
-              <p>{name}</p>
+              <p>{name.slice(0,11)}</p>
               <p>{rating}</p>
               <img className="star_icon" src={Star} alt="icon-heart" />
             </div>

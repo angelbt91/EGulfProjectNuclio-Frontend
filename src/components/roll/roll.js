@@ -6,8 +6,6 @@ import { useEffect, useState } from "react";
 const Roll = ({title}) =>{
   const url ='http://localhost:5001/auctions';
   const [auctions, setAuctions] = useState(undefined)
-  const [productAuctionId, setproductAuctionId] = useState();
-  // const [auctionUser, setAuctionUser] = useState();
   
   useEffect (() =>  {
     fetch(url)
@@ -33,11 +31,11 @@ const Roll = ({title}) =>{
       <div className="card_roll">
         {auctions && auctions.slice(0, 4).map((auction) => (
           <Card
-          //img={auction.images[0]}
-          //name={product.name}
-          //rating={product.rating}
+          img={auction.productId.images[0]}
+          name={auction.productId.name}
+          rating={auction.productId.owner.rating}
           initprice={auction.startingPrice}
-          id={auction._id}
+          id={auction.productId._id}
         />
         ))}
       </div>
@@ -49,22 +47,4 @@ const Roll = ({title}) =>{
 
 }
 
-/* const Roll = ({ title }) => {
-  return (
-    <div className="main_roll">
-      <h3>{title}</h3>
-      <div className="card_roll">
-        {ProductsList.slice(0, 4).map((product) => (
-          <Card
-            img={product.img}
-            name={product.name}
-            rating={product.rating}
-            initprice={product.initprice}
-            id={product.id}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}; */
 export default Roll;
