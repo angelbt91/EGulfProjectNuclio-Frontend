@@ -3,42 +3,52 @@ import TitleProduct from "../titleproduct/titleProduct";
 import "./productSheet.css";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 const ProductSheet = ({ title, description, initprice, iduser, rating }) => {
   const { id } = useParams();
-  const [bidAmount, setbidAmount] = useState(initprice);
+  const [bidAmount, setbidAmount] = useState();
+  const [bidDisplayed, setBidDisplayed] = useState(initprice);
+  const [bidCounter, setBidCounter] = useState();
+  const body = { bidAmount };
+  const localStorageToken = localStorage.getItem("token");
+
   const handleChange = (event) => {
     setbidAmount(event.target.value);
   };
 
-  const body = { bidAmount };
-  const localStorageToken = localStorage.getItem("token");
+  useEffect(() => {
+    fetch(`http://localhost:5001/products/${id}/currentAuction`)
+      .then((response) => response.json())
+      .then((data) => handleData(data));
+  }, []);
 
   const handleClick = () => {
-    fetch(`http://localhost:5001/products/${id}/currentAuction/bid`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorageToken}`,
-      },
-      body: JSON.stringify(body),
-    }).then(() => {
-      fetch(`http://localhost:5001//${id}/currentAuction`)
-        .then((res) => {
-          if (res.ok) {
-            console.log("OK!");
-            throw res.json();
-          } else {
-            throw res.text();
-          }
-        })
-        .then((response) => {
-          return response.json();
-        })
-        .then((myJson) => {
-          console.log(myJson);
-        });
-    });
+    if (bidAmount > bidDisplayed) {
+      fetch(`http://localhost:5001/products/${id}/currentAuction/bid`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorageToken}`,
+        },
+        body: JSON.stringify(body),
+      }).then(() => {
+        fetch(`http://localhost:5001/products/${id}/currentAuction`)
+          .then((response) => response.json())
+          .then((data) => handleData(data));
+      });
+    } else {
+      alert("your bid is lower or equal than the maxbid");
+    }
+  };
+
+  const handleData = async (data) => {
+    if (data) {
+      const [bids] = await data.bids;
+      const lastBid = bids[bids.length - 1].bidAmount;
+      setBidDisplayed(lastBid);
+      setBidCounter(bids.length);
+    }
   };
 
   return (
@@ -58,8 +68,8 @@ const ProductSheet = ({ title, description, initprice, iduser, rating }) => {
       <div className="businessContainer">
         <div className="bildsContainer">
           <div className="businessContainerInside">
-            <p className="priceActuality">{bidAmount} EUR </p>
-            <p className="bidActuality"> 2 Puja</p>
+            <p className="priceActuality">{bidDisplayed} EUR </p>
+            <p className="bidActuality">{bidCounter} Pujas</p>
             <input
               className="inputBid"
               type="text"
