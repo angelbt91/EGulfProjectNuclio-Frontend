@@ -12,7 +12,7 @@ import HeartRed from "../../assets/heartRed.png";
 import ProductPage from "../../pages/productpage/productpage";
 import("./card.css");
 
-const Card = ({ img, name, rating, initprice, id }) => {
+const Card = ({ img, name, rating, initprice, id, nameUser }) => {
   const history = useHistory();
   const url = "/productpage/" + id;
   const [condition, setCondition] = useState(true);
@@ -26,9 +26,10 @@ const Card = ({ img, name, rating, initprice, id }) => {
         <div className="banner">
           <div className="banner_info">
             <div className="banner_left">
-              <p>{name.slice(0,11)}</p>
-              <p>{rating}</p>
-              <img className="star_icon" src={Star} alt="icon-heart" />
+              <p className="name_card">{name.slice(0, 11)}</p>
+              <p className="rating_card">{rating}</p>
+              <p className="nameUser_card">{nameUser}</p>
+              <img className="star_icon" src={Star} alt="star-heart" />
             </div>
             <p className="banner_price">{initprice}</p>
             <div onClick={() => setCondition(!condition)}>
