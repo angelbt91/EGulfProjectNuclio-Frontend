@@ -1,21 +1,27 @@
 import "./tabheader.css";
+import { useHistory } from "react-router-dom";
 
 const TabHeader = () => {
   const optionsArray = [
-    "PORTADA",
-    "FAVORITOS",
     "CASA Y JARDIN",
     "MODA",
     "MOTOR",
     "COLECCIONISMO",
     "OFERTAS",
   ];
+  const history = useHistory();
   return (
     <div className="_tabheadContainer">
+      <div>
+        <span onClick={() => history.push("/")}>PORTADA</span>
+      </div>
+      <div>
+        <span onClick={() => history.push("/favouritePage")}>FAVORITOS</span>
+      </div>
       {optionsArray.map((option) => {
         return (
           <div className="tab">
-            <span id="notthediv">{option}</span>
+            <span onClick= {() => history.push("/favouritePage")} id="notthediv">{option.toLowerCase()}</span>
           </div>
         );
       })}
@@ -23,4 +29,4 @@ const TabHeader = () => {
   );
 };
 
-export default TabHeader;
+export default TabHeader
