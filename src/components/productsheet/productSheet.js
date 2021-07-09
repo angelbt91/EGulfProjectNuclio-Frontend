@@ -2,15 +2,10 @@ import BidButton from "../bidbutton/bidButton";
 import TitleProduct from "../titleproduct/titleProduct";
 import "./productSheet.css";
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 
-const ProductSheet = ({
-  id,
-  title,
-  description,
-  initprice,
-  iduser,
-  rating,
-}) => {
+const ProductSheet = ({ title, description, initprice, iduser, rating }) => {
+  const { id } = useParams();
   const [bidAmount, setbidAmount] = useState(initprice);
   const handleChange = (event) => {
     setbidAmount(event.target.value);
