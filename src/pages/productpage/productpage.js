@@ -9,16 +9,10 @@ import { useParams } from "react-router-dom";
 
 const ProductPage = () => {
   const { id } = useParams();
-  const [product, setProduct] = useState({
-    name: "",
-    description: "",
-    startPrice: 0,
-    sellerId: {},
-    rating: "",
-  });
+  const [product, setProduct] = useState();
 
   useEffect(() => {
-    fetch(`http://localhost:5001/products/${id}`)
+    fetch(`http://localhost:5001/auctions/${id}`)
       .then((response) => response.json())
       .then((json) => setProduct(json));
   }, [id]);
@@ -27,14 +21,18 @@ const ProductPage = () => {
     <div>
       <div className="productContainer">
         <BreadCrumber />
-        <ProductGallery />
-        <ProductSheet
-          title={ProductsList[5].name}
-          description={ProductsList[5].description}
-          initprice={ProductsList[5].initprice}
-          iduser={ProductsList[5].iduser}
-          rating={ProductsList[5].rating}
-        />
+        {
+          <ProductGallery /> /*//TODO: URLimages={product.images} para pasar las imagenes desde productGallery */
+        }
+        {product && (
+          <ProductSheet
+            title={product.productId.name}
+            description={product.productId.description}
+            initprice={product.startingPrice}
+            iduser={product.productId.sellerId.name}
+            rating={ProductsList[5].rating} //TODO: cuando exista el rating de user, añadirlo aquí (y popular en back)
+          />
+        )}
         <div className="rollproductContainer">
           <Roll title="Artículos similares" />
         </div>
