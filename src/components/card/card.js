@@ -14,7 +14,7 @@ import("./card.css");
 
 const Card = ({ img, name, rating, initprice, id, nameUser }) => {
   const history = useHistory();
-  const url = "/productpage/" + id;
+  const url = "/product/" + id;
   const [condition, setCondition] = useState(true);
 
   return (
