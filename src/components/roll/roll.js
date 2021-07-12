@@ -28,6 +28,7 @@ const Roll = ({ title }) => {
   return (
     <div className="main_roll">
       <h3>{title}</h3>
+
       <div className="card_roll">
         {auctions &&
           auctions

@@ -24,21 +24,19 @@ const Card = ({ img, name, rating, initprice, id, nameUser }) => {
           <img src={img} className="cardImage" alt="" />
         </Link>
         <div className="banner">
-          <div className="banner_info">
-            <div className="banner_left">
-              <p className="name_card">{name.slice(0, 11)}</p>
-              <p className="rating_card">{rating}</p>
-              <span className="nameUser_card">{nameUser}</span>
-              <img className="star_icon" src={Star} alt="star-heart" />
-            </div>
-            <p className="banner_price">{initprice}</p>
-            <div onClick={() => setCondition(!condition)}>
-              <img
-                className="heart_icon"
-                src={condition ? Heart : HeartRed}
-                alt="icon-heart"
-              />
-            </div>
+          <span className="name_card">{name.slice(0, 14)}</span>
+          <p className="nameUser_card">{nameUser}</p>
+
+          <p className="banner_price">{initprice}</p>
+          <p className="rating_card">{rating}</p>
+
+          <div onClick={() => setCondition(!condition)}>
+            <img className="star_icon" src={Star} alt="star" />
+            <img
+              className="heart_icon"
+              src={condition ? Heart : HeartRed}
+              alt="icon-heart"
+            />
           </div>
         </div>
       </div>
