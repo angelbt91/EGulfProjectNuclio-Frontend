@@ -46,7 +46,7 @@ const ProductSheet = ({ title, description, initprice, iduser, rating }) => {
   };
 
   const handleData = (data) => {
-    const [bidsArray] = data.bids;
+    const bidsArray = data.bids;
     if (bidsArray.length) {
       const lastBid = bidsArray[bidsArray.length - 1].bidAmount;
       setBidDisplayed(lastBid);
