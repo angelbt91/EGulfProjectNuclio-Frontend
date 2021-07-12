@@ -7,21 +7,24 @@ import { useEffect } from "react";
 
 const ProductSheet = ({ title, description, initprice, iduser, rating }) => {
   const { id } = useParams();
-  const [bidAmount, setbidAmount] = useState();
+
+  const [bidAmount, setbidAmount] = useState(initprice);
   const [bidDisplayed, setBidDisplayed] = useState(initprice);
-  const [bidCounter, setBidCounter] = useState();
+  const [bidCounter, setBidCounter] = useState(0);
+
   const body = { bidAmount };
   const localStorageToken = localStorage.getItem("token");
-
-  const handleChange = (event) => {
-    setbidAmount(event.target.value);
-  };
 
   useEffect(() => {
     fetch(`http://localhost:5001/products/${id}/currentAuction`)
       .then((response) => response.json())
       .then((data) => handleData(data));
   }, []);
+
+  const handleChange = (event) => {
+    const inputValue = event.target.value;
+    setbidAmount(inputValue);
+  };
 
   const handleClick = () => {
     if (bidAmount > bidDisplayed) {
@@ -38,16 +41,16 @@ const ProductSheet = ({ title, description, initprice, iduser, rating }) => {
           .then((data) => handleData(data));
       });
     } else {
-      alert("your bid is lower or equal than the maxbid");
+      alert("Tu puja debe ser más alta que el precio actual");
     }
   };
 
-  const handleData = async (data) => {
-    if (data) {
-      const [bids] = await data.bids;
-      const lastBid = bids[bids.length - 1].bidAmount;
+  const handleData = (data) => {
+    const [bidsArray] = data.bids;
+    if (bidsArray.length) {
+      const lastBid = bidsArray[bidsArray.length - 1].bidAmount;
       setBidDisplayed(lastBid);
-      setBidCounter(bids.length);
+      setBidCounter(bidsArray.length);
     }
   };
 
@@ -72,7 +75,7 @@ const ProductSheet = ({ title, description, initprice, iduser, rating }) => {
             <p className="bidActuality">{bidCounter} Pujas</p>
             <input
               className="inputBid"
-              type="text"
+              type="number"
               name="textBid"
               placeholder="Introduce tu puja"
               onChange={handleChange}
