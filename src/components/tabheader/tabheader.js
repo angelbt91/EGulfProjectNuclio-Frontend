@@ -1,7 +1,7 @@
 import "./tabheader.css";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
-import { render } from "react-dom";
+
 import TabSubHeader from "../tabsubheader/tabsubheader";
 
 const TabHeader = () => {
@@ -29,20 +29,19 @@ const TabHeader = () => {
 
         {optionsArray.map((option) => {
           return (
-            <div onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)} className="tab">
-              {/* ponemos el history.push de ruta a favouritePage como test */}
-              <span onClick= {() => history.push("/favouritePage")} id="notthediv">{option.toLowerCase()}</span>
-            </div>
-            {isShown && 
-              <div>
-              <TabSubHeader />
+            <div>
+              <div onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)} className="tab">
+                <span onClick= {() => history.push("/favouritePage")} id="notthediv">{option.toLowerCase()}</span>
               </div>
-            }
-          )
-        })}
+              {isShown && 
+                <div>
+                  <TabSubHeader />
+                </div>
+              }
+            </div>
+        )})};
       </div>
-    );
-  }  
+      ); 
+  }    
 };
-
 export default TabHeader
