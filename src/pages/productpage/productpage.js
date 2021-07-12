@@ -31,6 +31,14 @@ const ProductPage = () => {
             initprice={product.startingPrice}
             iduser={product.productId.sellerId.name}
             rating={ProductsList[5].rating} //TODO: cuando exista el rating de user, añadirlo aquí (y popular en back)
+
+            /* PARA PUJAS FUNCIONALES CAMBIAR POR LO SIGUIENTE
+
+            title={ProductsList[5].name}
+            description={ProductsList[5].description}
+            initprice={ProductsList[5].initprice}
+            iduser={ProductsList[5].iduser}
+            rating={ProductsList[5].rating} */
           />
         )}
         <div className="rollproductContainer">
