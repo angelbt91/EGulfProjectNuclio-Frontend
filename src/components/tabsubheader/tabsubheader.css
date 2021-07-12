@@ -1,9 +1,11 @@
 ._tabsubheadContainer {
-  display: none;
   display: flex;
-  flex-direction: row;
+  position: relative;
+  border-top: 1px solid black;
+  z-index: 10;
   justify-content: center;
   height: 62px;
+  background-color: azure;
 }
 
 ._tabsubheadContainer > div {
