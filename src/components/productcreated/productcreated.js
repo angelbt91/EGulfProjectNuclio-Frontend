@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Roll from "../roll/roll";
+import Roll2 from "../roll/roll2";
 import "./productcreated.css";
 
 const ProductCreated = () => {
@@ -23,11 +24,11 @@ const ProductCreated = () => {
         </div>
         <div className="products_activos">
           <h1 className="titulo_activos">Activos</h1>
-          <Roll />
+          <Roll2 />
         </div>
         <div className="products_vendidos">
           <h1 className="titulo_venta">Ventas</h1>
-          <Roll />
+          <Roll2 />
         </div>
       </div>
     </div>
