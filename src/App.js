@@ -5,10 +5,10 @@ import MainPage from "./pages/mainpage/mainpage";
 import ProductPage from "./pages/productpage/productpage";
 import Header from "./components/header/header";
 import FavouritePage from "./pages/favouritepage/favouritepage";
-import CreateProductForm from "./pages/productformpage/productformpage";
+
 import "./App.css";
 import ProductFormPage from "./pages/productformpage/productformpage";
-
+import ProductCreatedPage from "./pages/productcreatedpage/productcratedpage";
 function App() {
   return (
     <div className="_appBody">
@@ -23,6 +23,9 @@ function App() {
         <Switch>
           <Route exact path="/login">
             <LoginPage />
+          </Route>
+          <Route exact path="/productcreatedpage">
+            <ProductCreatedPage />
           </Route>
           <Route exact path="/">
             <MainPage />
