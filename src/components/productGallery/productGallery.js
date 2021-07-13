@@ -2,6 +2,8 @@ import "./productGallery.css";
 import ProductsList from "../comp/product.json";
 import GalleryImage from "../galleryimage/galleryImage";
 import { useState } from "react";
+
+
 const ProductGallery = () => {
   const [images, setImages] = useState(ProductsList[5].img);
   return (
