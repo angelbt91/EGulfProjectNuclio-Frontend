@@ -28,7 +28,7 @@ const ProductCreated = () => {
         </div>
         <div className="products_vendidos">
           <h1 className="titulo_venta">Ventas</h1>
-          <Roll2 />
+          <Roll />
         </div>
       </div>
     </div>

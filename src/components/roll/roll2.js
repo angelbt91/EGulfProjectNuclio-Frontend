@@ -32,7 +32,7 @@ const Roll2 = ({ title }) => {
       <div className="card_roll">
         {auctions &&
           auctions
-            .slice(0, 2)
+            .slice(1, 3)
             .map((auction) => (
               <Card
                 img={auction.productId.images[0]}
