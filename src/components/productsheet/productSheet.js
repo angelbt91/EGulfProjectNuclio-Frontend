@@ -4,30 +4,28 @@ import "./productSheet.css";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 
 const ProductSheet = ({ title, description, initprice, iduser, rating }) => {
   const { id } = useParams();
+  const history = useHistory();
 
-  const [bidAmount, setbidAmount] = useState(initprice);
   const [bidDisplayed, setBidDisplayed] = useState(initprice);
   const [bidCounter, setBidCounter] = useState(0);
 
-  const body = { bidAmount };
-  const localStorageToken = localStorage.getItem("token");
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
 
-  useEffect(() => {
-    fetch(`http://localhost:5001/products/${id}/currentAuction`)
-      .then((response) => response.json())
-      .then((data) => handleData(data));
-  }, []);
-
-  const handleChange = (event) => {
-    const inputValue = event.target.value;
-    setbidAmount(inputValue);
-  };
-
-  const handleClick = () => {
-    if (bidAmount > bidDisplayed) {
+  const onSubmit = (dataOnSubmit) => {
+    if (localStorage.getItem("token")) {
+      const bidAmount = dataOnSubmit.bids;
+      const body = { bidAmount };
+      const localStorageToken = localStorage.getItem("token");
       fetch(`http://localhost:5001/products/${id}/currentAuction/bid`, {
         method: "POST",
         headers: {
@@ -41,14 +39,20 @@ const ProductSheet = ({ title, description, initprice, iduser, rating }) => {
           .then((data) => handleData(data));
       });
     } else {
-      alert("Tu puja debe ser más alta que el precio actual");
+      history.push("/login");
     }
   };
+
+  useEffect(() => {
+    fetch(`http://localhost:5001/products/${id}/currentAuction`)
+      .then((response) => response.json())
+      .then((data) => handleData(data));
+  }, []);
 
   const handleData = (data) => {
     const bidsArray = data.bids;
     if (bidsArray.length) {
-      const lastBid = bidsArray[bidsArray.length - 1].bidAmount;
+      const lastBid = bidsArray[bidsArray.length - 1]?.bidAmount;
       setBidDisplayed(lastBid);
       setBidCounter(bidsArray.length);
     }
@@ -73,16 +77,19 @@ const ProductSheet = ({ title, description, initprice, iduser, rating }) => {
           <div className="businessContainerInside">
             <p className="priceActuality">{bidDisplayed} EUR </p>
             <p className="bidActuality">{bidCounter} Pujas</p>
-            <input
-              className="inputBid"
-              type="number"
-              name="textBid"
-              placeholder="Introduce tu puja"
-              onChange={handleChange}
-            ></input>
-            <div className="placeButton">
-              <BidButton savePrice={handleClick} />
-            </div>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <input
+                className="inputBid"
+                type="number"
+                step="0.01"
+                placeholder="Introduce tu puja"
+                {...register("bids", { min: bidDisplayed })}
+              />
+              <p className="errorParagraph">
+                {errors.bids && "La puja tiene que superar el precio actual"}
+              </p>
+              <input className="bidButtonProduct" type="submit" value="PUJAR" />
+            </form>
           </div>
         </div>
         <div className="sellerContainer">
