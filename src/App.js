@@ -24,7 +24,7 @@ function App() {
           <Route exact path="/login">
             <LoginPage />
           </Route>
-          <Route exact path="/productcreatedpage">
+          <Route exact path="/productcreatedpage/:id">
             <ProductCreatedPage />
           </Route>
           <Route exact path="/">

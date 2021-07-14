@@ -3,7 +3,7 @@ import ProductsList from "../comp/product.json";
 import "./roll.css";
 import { useEffect, useState } from "react";
 
-const Roll = ({ title }) => {
+const Roll = ({ title, link }) => {
   const url = "http://localhost:5001/auctions";
   const [auctions, setAuctions] = useState(undefined);
 
