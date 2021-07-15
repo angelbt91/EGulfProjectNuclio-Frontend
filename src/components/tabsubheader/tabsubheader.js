@@ -1,15 +1,12 @@
 import "./tabsubheader.css";
-import { useState } from "react";
+import { useState, useHistory } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 const TabSubHeader = () => {
   const [subcategory, setSubcategory] = useState();
   const [options, useOptions] = useState();
-  const { id } = useParams();
+  const history = useHistory();
 
-  /*   fetch(`http://localhost:5001/categories/${id}/subcategories`)
-    .then((response) => response.json())
-    .then((json) => setSubcategory(json)); */
   const optionsArray = [
     "ZAPATOS",
     "ABRIGOS",
@@ -20,15 +17,23 @@ const TabSubHeader = () => {
     "JERSÉIS",
   ];
   return (
-    <div className="_tabsubheadContainer">
-      {optionsArray.map((option) => {
-        return (
-          <div className="tab">
-            <span id="notthediv">{option}</span>
-          </div>
-        );
-      })}
+    <div>
+      <div className="_tabsubheadContainer">
+        {optionsArray.map((option) => {
+          return (
+            <div>
+              <span
+                onClick={() => history.push("/favouritePage")}
+                id="notthediv"
+              >
+                {option.charAt(0).toUpperCase() + option.slice(1).toLowerCase()}
+              </span>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
+
 export default TabSubHeader;

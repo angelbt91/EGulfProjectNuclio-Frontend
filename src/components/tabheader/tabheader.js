@@ -6,6 +6,7 @@ import TabSubHeader from "../tabsubheader/tabsubheader";
 const TabHeader = () => {
   const [categories, setCategories] = useState();
   const history = useHistory();
+  const [isShown, setIsShown] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:5001/categories`)
@@ -39,31 +40,36 @@ const TabHeader = () => {
   }, []);
 
   return (
-    <div className="_tabheadContainer">
+    <div>
       <div>
-        <span onClick={() => history.push("/")}>PORTADA</span>
-      </div>
-      <div>
-        <span onClick={() => history.push("/favouritePage/")}>FAVORITOS</span>
-      </div>
-
-      {categories &&
-        categories.map((category) => {
-          const parentsCategory =
-            category.parentCategory && category.parentCategory !== "";
-
-          return (
-            !parentsCategory && (
-              <div className="tab">
-                <span id="notthediv">{category.name}</span>
+        <div className="_tabheadContainer">
+          <div className="tab">
+            <span onClick={() => history.push("/")}>PORTADA</span>
+          </div>
+          <div className="tab">
+            <span onClick={() => history.push("/favouritePage")}>
+              FAVORITOS
+            </span>
+          </div>
+          <div onMouseLeave={() => setIsShown(false)}>
+            <div>
+              <div onMouseEnter={() => setIsShown(true)} className="tab">
+                <span
+                  onClick={() => history.push("/favouritePage")}
+                  id="notthediv"
+                >
+                  {setCategories()}
+                </span>
               </div>
-            )
-          );
-        })}
-
-      {/* <div>
-        <TabSubHeader />
-      </div> */}
+            </div>
+          </div>
+          {isShown && (
+            <div className="_tabSubheadContainer">
+              <TabSubHeader />
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
