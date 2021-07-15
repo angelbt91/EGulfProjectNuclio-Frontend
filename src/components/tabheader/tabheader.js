@@ -1,7 +1,6 @@
 import "./tabheader.css";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
-
 import TabSubHeader from "../tabsubheader/tabsubheader";
 
 const TabHeader = () => {
@@ -27,21 +26,23 @@ const TabHeader = () => {
           <div>
             <span onClick={() => history.push("/favouritePage")}>FAVORITOS</span>
           </div>
+        <div onMouseLeave={() => setIsShown(false)} className="_tabheadContainer">
 
           {optionsArray.map((option) => {
             return (
               <div>
-                <div onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)} className="tab">
+                <div onMouseEnter={() => setIsShown(true)} className="tab">
                   <span onClick= {() => history.push("/favouritePage")} id="notthediv">{option.toLowerCase()}</span>
                 </div>
               </div>
           )})}
-        </div>
-        {isShown && 
+          {isShown && 
                   <div>
                     <TabSubHeader />
                   </div>
                 }
+          </div>
+        </div>
       </div>
     );   
 };
