@@ -10,43 +10,32 @@ const TabHeader = () => {
   useEffect(() => {
     fetch(`http://localhost:5001/categories`)
       .then((response) => response.json())
-      .then(
-        (json) => {
-          if (json.length < 1) return;
-          const filteredCategories = json
-            .map((category) => {
-              const isCategoryParent =
-                category.parentCategory && category.parentCategory !== "";
-              return (
-                !isCategoryParent && { name: category.name, id: category._id }
-              );
-            })
-            .filter((isCategoryParent) => !isCategoryParent == false);
-          console.log(filteredCategories);
-
-          const objeto = {};
-
-          if (filteredCategories.length > 0) {
-            filteredCategories.forEach((category) => {
-              objeto[category.name] = [category.id];
-            });
-            console.log(objeto);
+      .then((json) => {
+        const filteredCategories = {};
+        const filteredSubcategories = {};
+        const filter = json.forEach((category) => {
+          const hasCategoryParent =
+            category.parentCategory && category.parentCategory !== "";
+          if (!hasCategoryParent) {
+            return (filteredCategories[category.name] = [category._id]);
+          } else {
+            return (filteredSubcategories[category.name] = [
+              category.parentCategory,
+            ]);
           }
-          /*  const subcategoriesId = [];
-          for (const categories in objeto) {
-            const children = json.filter((subcategories) => {
-              if (!subcategories.parentCategory) {
-                return subcategoriesId.push(subcategories.paren);
-              }
-              console.log(subcategoriesId);
-            });
-            objeto[categories] = children;
-          } */
-          // recuperar de todas las categorías aquellas cuyo padre sea igual a "key"
-        }
-        /*  setCategories(json);
-          console.log(json); */
-      );
+        });
+        let finalCategories = {};
+        Object.keys(filteredCategories).forEach((category) => {
+          const categoryToSearch = filteredCategories[category][0];
+          console.log(categoryToSearch);
+          const subcategories = Object.keys(filteredSubcategories).filter(
+            (subcategory) =>
+              filteredSubcategories[subcategory][0] === categoryToSearch
+          );
+          finalCategories[category] = subcategories;
+        });
+        setCategories(finalCategories);
+      });
   }, []);
 
   return (
