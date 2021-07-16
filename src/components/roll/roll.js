@@ -2,10 +2,28 @@ import Card from "../card/card";
 import ProductsList from "../comp/product.json";
 import "./roll.css";
 import { useEffect, useState } from "react";
-import { useAuctions } from "../../hooks/useAuctions";
 
 const Roll = ({ title }) => {
-  const { auctions } = useAuctions();
+  const url = "http://localhost:5001/auctions";
+  const [auctions, setAuctions] = useState(undefined);
+
+  useEffect(() => {
+    fetch(url)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw Error(response.statusText);
+        }
+      })
+      .then((data) => {
+        let auctionUser = data;
+        setAuctions(auctionUser);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
   return (
     <div className="main_roll">
@@ -17,12 +35,12 @@ const Roll = ({ title }) => {
             .slice(0, 4)
             .map((auction) => (
               <Card
-                img={auction.productId?.images[0]}
-                name={auction.productId?.name}
-                rating={auction.productId?.owner.rating}
+                img={auction.productId.images[0]}
+                name={auction.productId.name}
+                rating={auction.productId.owner.rating}
                 initprice={auction.startingPrice}
-                id={auction.productId?._id}
-                nameUser={auction.productId?.owner.name}
+                id={auction._id}
+                nameUser={auction.productId.owner.name}
               />
             ))}
       </div>
