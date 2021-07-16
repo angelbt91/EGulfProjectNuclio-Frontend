@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import TabSubHeader from "../tabsubheader/tabsubheader";
 
-const TabHeader = () => {
+const TabHeader = ({ subcategories }) => {
   const [categories, setCategories] = useState();
   const history = useHistory();
   const [isShown, setIsShown] = useState(false);
@@ -14,7 +14,7 @@ const TabHeader = () => {
       .then((json) => {
         const filteredCategories = {};
         const filteredSubcategories = {};
-        const filter = json.forEach((category) => {
+        json.forEach((category) => {
           const hasCategoryParent =
             category.parentCategory && category.parentCategory !== "";
           if (!hasCategoryParent) {
@@ -28,11 +28,11 @@ const TabHeader = () => {
         let finalCategories = {};
         Object.keys(filteredCategories).forEach((category) => {
           const categoryToSearch = filteredCategories[category][0];
-          console.log(categoryToSearch);
           const subcategories = Object.keys(filteredSubcategories).filter(
             (subcategory) =>
               filteredSubcategories[subcategory][0] === categoryToSearch
           );
+
           finalCategories[category] = subcategories;
         });
         setCategories(finalCategories);
@@ -54,18 +54,33 @@ const TabHeader = () => {
           <div onMouseLeave={() => setIsShown(false)}>
             <div>
               <div onMouseEnter={() => setIsShown(true)} className="tab">
-                <span
-                  onClick={() => history.push("/favouritePage")}
-                  id="notthediv"
-                >
-                  {setCategories()}
-                </span>
+                {categories &&
+                  Object.keys(categories).map((category) => {
+                    return (
+                      <div>
+                        <span>{category}</span>
+                      </div>
+                    );
+                  })}
+
+                {/*  .forEach((key) => {
+                  return <span>{key.name}</span>;
+                })} */}
+
+                {console.log(categories)}
               </div>
             </div>
           </div>
           {isShown && (
             <div className="_tabSubheadContainer">
-              <TabSubHeader />
+              <TabSubHeader
+                subcategories={
+                  categories &&
+                  Object.values(categories).map((subcategory) => {
+                    return subcategory;
+                  })
+                }
+              />
             </div>
           )}
         </div>

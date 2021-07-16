@@ -11,6 +11,7 @@
 }
 ._tabsubheadContainer > div {
   height: 31px;
+  font-family: url(“../../assets/Roboto-Thin.ttf”);
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
