@@ -25,6 +25,10 @@ const Roll = ({ title }) => {
       });
   }, []);
 
+  useEffect(() => {
+    fetch(url);
+  }, []);
+
   return (
     <div className="main_roll">
       <h3>{title}</h3>
@@ -41,6 +45,7 @@ const Roll = ({ title }) => {
                 initprice={auction.startingPrice}
                 id={auction.productId._id}
                 nameUser={auction.productId.owner.name}
+                usersFavs={auction.productId.userFavs}
               />
             ))}
       </div>

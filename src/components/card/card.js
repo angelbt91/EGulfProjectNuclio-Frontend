@@ -12,10 +12,20 @@ import HeartRed from "../../assets/heartRed.png";
 import ProductPage from "../../pages/productpage/productpage";
 import("./card.css");
 
-const Card = ({ img, name, rating, initprice, id, nameUser }) => {
+const Card = ({
+  img,
+  name,
+  rating,
+  initprice,
+  id,
+  nameUser,
+  usersFavs,
+  isChanged,
+}) => {
   const history = useHistory();
   const url = "/product/" + id;
-  const [isFavorite, setIsFavorite] = useState(true);
+  const [isFavorite, setIsFavorite] = useState(usersFavs);
+  const [isChanged, setIsChanged] = useState(false);
 
   return (
     <Router>
@@ -30,7 +40,10 @@ const Card = ({ img, name, rating, initprice, id, nameUser }) => {
           <p className="banner_price">{initprice}</p>
           <p className="rating_card">{rating}</p>
 
-          <div onClick={() => setIsFavorite(!isFavorite)}>
+          <div
+            onClick={() => setIsFavorite(!isFavorite)}
+            onChange={() => setIsChanged(!isChanged)}
+          >
             <img className="star_icon" src={Star} alt="star" />
             <img
               className="heart_icon"
