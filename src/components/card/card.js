@@ -15,7 +15,7 @@ import("./card.css");
 const Card = ({ img, name, rating, initprice, id, nameUser }) => {
   const history = useHistory();
   const url = "/product/" + id;
-  const [condition, setCondition] = useState(true);
+  const [isFavorite, setIsFavorite] = useState(true);
 
   return (
     <Router>
@@ -30,11 +30,11 @@ const Card = ({ img, name, rating, initprice, id, nameUser }) => {
           <p className="banner_price">{initprice}</p>
           <p className="rating_card">{rating}</p>
 
-          <div onClick={() => setCondition(!condition)}>
+          <div onClick={() => setIsFavorite(!isFavorite)}>
             <img className="star_icon" src={Star} alt="star" />
             <img
               className="heart_icon"
-              src={condition ? Heart : HeartRed}
+              src={isFavorite ? Heart : HeartRed}
               alt="icon-heart"
             />
           </div>
