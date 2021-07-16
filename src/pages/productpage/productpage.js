@@ -5,18 +5,28 @@ import ProductsList from "../../components/comp/product.json";
 import ProductSheet from "../../components/productsheet/productSheet";
 import Roll from "../../components/roll/roll";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 const ProductPage = () => {
   const { id } = useParams();
-  const [product, setProduct] = useState();
+  const [auction, setauction] = useState();
+  const history = useHistory();
 
   useEffect(() => {
     fetch(`http://localhost:5001/auctions/${id}`)
-      .then((response) => response.json())
-      .then((json) => setProduct(json));
+      .then((response) => {
+        if (response.status != 200) {
+          throw "Auction couldn't be found. Check the id!";
+        }
+        return response.json();
+      })
+      .then((json) => setauction(json))
+      .catch((error) => {
+        console.log(error);
+        history.push("/");
+      });
   }, [id]);
-
+  console.log(auction);
   return (
     <div>
       <div className="productContainer">
@@ -24,12 +34,12 @@ const ProductPage = () => {
         {
           <ProductGallery /> /*//TODO: URLimages={product.images} para pasar las imagenes desde productGallery */
         }
-        {product && (
+        {auction && (
           <ProductSheet
-            title={product.productId.name}
-            description={product.productId.description}
-            initprice={product.startingPrice}
-            iduser={product.productId.sellerId.name}
+            title={auction.productId.name}
+            description={auction.productId.description}
+            initprice={auction.startingPrice}
+            iduser={auction.productId.owner.name}
             rating={ProductsList[5].rating} //TODO: cuando exista el rating de user, añadirlo aquí (y popular en back)
           />
         )}
