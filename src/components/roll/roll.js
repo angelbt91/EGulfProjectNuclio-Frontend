@@ -20,8 +20,8 @@ const Roll = ({ title }) => {
                 name={auction.productId?.name}
                 rating={auction.productId?.owner.rating}
                 initprice={auction.startingPrice}
-                id={auction.productId?._id}
-                nameUser={auction.productId?.owner.name}
+                id={auction._id}
+                nameUser={auction.productId.owner.name}
               />
             ))}
       </div>
