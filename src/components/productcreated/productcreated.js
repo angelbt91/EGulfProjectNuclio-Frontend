@@ -24,11 +24,9 @@ const ProductCreated = () => {
         </div>
         <div className="products_activos">
           <h1 className="titulo_activos">Activos</h1>
-          <Roll />
         </div>
         <div className="products_vendidos">
           <h1 className="titulo_venta">Ventas</h1>
-          <Roll />
         </div>
       </div>
     </div>
