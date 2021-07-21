@@ -10,16 +10,23 @@ import { useHistory } from "react-router-dom";
 const ProductSheet = ({ title, description, initprice, iduser, rating }) => {
   const { id } = useParams();
   const history = useHistory();
-
   const [bidDisplayed, setBidDisplayed] = useState(initprice);
   const [bidCounter, setBidCounter] = useState(0);
 
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    mode: "onChange",
+    reValidateMode: "onChange",
+    defaultValues: {},
+    resolver: undefined,
+    context: undefined,
+    criteriaMode: "firstError",
+    shouldFocusError: true,
+    shouldUnregister: true,
+  });
 
   const onSubmit = (dataOnSubmit) => {
     if (localStorage.getItem("token")) {
@@ -84,12 +91,26 @@ const ProductSheet = ({ title, description, initprice, iduser, rating }) => {
                 className="inputBid"
                 type="number"
                 step="0.01"
+                min={bidDisplayed + 0.01}
+                max="99999999"
                 placeholder="Introduce tu puja"
-                {...register("bids", { min: bidDisplayed })}
+                {...register("bids", {
+                  validate: {
+                    noNumber: (value) => (value ? true : ""),
+                    moreThanBidDisplayed: (value) =>
+                      parseFloat(value) > bidDisplayed
+                        ? true
+                        : "La puja debe superar el precio actual",
+                    lessThanNumber: (value) =>
+                      parseFloat(value) < 100000000
+                        ? true
+                        : "La puja no puede ser tan alta",
+                  },
+                })}
               />
-              <p className="errorParagraph">
-                {errors.bids && "La puja tiene que superar el precio actual"}
-              </p>
+              {errors.bids && (
+                <p className="errorParagraph">{errors.bids.message}</p>
+              )}
               <input className="bidButtonProduct" type="submit" value="PUJAR" />
             </form>
           </div>
