@@ -34,7 +34,7 @@ const Card = ({
           <img src={img} className="cardImage" alt="" />
         </Link>
         <div className="banner">
-          <span className="name_card">{name.slice(0, 14)}</span>
+          <span className="name_card">{name?.slice(0, 14)}</span>
           <p className="nameUser_card">{nameUser}</p>
 
           <p className="banner_price">{initprice}</p>
