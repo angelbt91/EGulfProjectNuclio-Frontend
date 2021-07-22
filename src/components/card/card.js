@@ -20,12 +20,27 @@ const Card = ({
   id,
   nameUser,
   usersFavs,
-  isChanged,
+  refreshFavorites,
 }) => {
   const history = useHistory();
   const url = "/product/" + id;
   const [isFavorite, setIsFavorite] = useState(usersFavs);
-  const [isChanged, setIsChanged] = useState(false);
+  const localStorageToken = localStorage.getItem("token");
+
+  const updateFavorite = () => {
+    setIsFavorite(!isFavorite);
+    fetch(`http://localhost:5001/products/${id}/favorite`, {
+      method: isFavorite ? "PUT" : "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorageToken}`,
+      },
+    }).then(() => {
+      if (refreshFavorites) {
+        refreshFavorites();
+      }
+    });
+  };
 
   return (
     <Router>
@@ -40,10 +55,7 @@ const Card = ({
           <p className="banner_price">{initprice}</p>
           <p className="rating_card">{rating}</p>
 
-          <div
-            onClick={() => setIsFavorite(!isFavorite)}
-            onChange={() => setIsChanged(!isChanged)}
-          >
+          <div onClick={updateFavorite}>
             <img className="star_icon" src={Star} alt="star" />
             <img
               className="heart_icon"
