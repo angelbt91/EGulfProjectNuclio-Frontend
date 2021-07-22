@@ -5,15 +5,15 @@ import { useEffect, useState } from "react";
 const RollFavorites = () => {
   const url = "http://localhost:5001/users/me/favorites";
   const [favorites, setFavorites] = useState(undefined);
-  const [refreshFavorites, setrefReshFavorites] = useState(false);
+  const [refreshFavorites, setRefreshFavorites] = useState(false);
   useEffect(() => {
     fetch(url, {
-      method: 'GET',
-      headers: {'Content-Type': 'application/json',
-      Authorization: "Bearer " + localStorage.token     
-    },
-  })
-
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.token,
+      },
+    })
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -34,17 +34,16 @@ const RollFavorites = () => {
     <div className="main_roll">
       <div className="card_roll">
         {favorites &&
-          favorites
-            .map((favorite) => (
-              <Card
-                img ={favorite.images[0]}
-                name = {favorite.name}
-                id = {favorite._id}
-                nameUser = {favorite.owner.name}
-                rating = {favorite.owner.rating}
-                onchangeFavorite = {()=> setrefReshFavorites(!refreshFavorites)}  
-              />
-            ))}
+          favorites.map((favorite) => (
+            <Card
+              img={favorite.images[0]}
+              name={favorite.name}
+              id={favorite._id}
+              nameUser={favorite.owner.name}
+              rating={favorite.owner.rating}
+              onchangeFavorite={() => setRefreshFavorites(!refreshFavorites)}
+            />
+          ))}
       </div>
     </div>
   );
