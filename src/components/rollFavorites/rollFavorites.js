@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 const RollFavorites = () => {
   const url = "http://localhost:5001/users/me/favorites";
   const [favorites, setFavorites] = useState(undefined);
+  const [refreshFavorites, setrefReshFavorites] = useState(false);
   useEffect(() => {
     fetch(url, {
       method: 'GET',
@@ -27,7 +28,7 @@ const RollFavorites = () => {
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [refreshFavorites]);
 
   return (
     <div className="main_roll">
@@ -41,6 +42,7 @@ const RollFavorites = () => {
                 id = {favorite._id}
                 nameUser = {favorite.owner.name}
                 rating = {favorite.owner.rating}
+                onchangeFavorite = {()=> setrefReshFavorites(!refreshFavorites)}  
               />
             ))}
       </div>
