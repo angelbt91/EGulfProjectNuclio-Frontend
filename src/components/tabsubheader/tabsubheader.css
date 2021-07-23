@@ -18,13 +18,13 @@
 }
 ._tabSubheadContainer {
   display: flex;
+  align-items: center;
   font-weight: 500;
   font-size: 12px;
   letter-spacing: 0.02em;
   color: #798591;
   margin-right: 37px;
   margin-left: 37px;
-  margin-top: 7px;
   text-transform: capitalize;
 }
 ._tabSubheadContainer :hover {

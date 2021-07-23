@@ -3,7 +3,7 @@ const TabSubHeader = ({ subcategories }) => {
   return (
     <div className="_subheadContainerPosition">
       <div className="_subheadContainer">
-        <span className="_tabSubheadContainer">{subcategories}</span>
+        {subcategories}
       </div>
     </div>
   );
