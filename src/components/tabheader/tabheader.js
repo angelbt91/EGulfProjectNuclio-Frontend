@@ -3,87 +3,83 @@ import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import TabSubHeader from "../tabsubheader/tabsubheader";
 
-const TabHeader = ({ subcategories }) => {
+const agregateCategoriesAndSubcategories = (categoryList) => {
+  const filteredCategories = {};
+  const filteredSubcategories = {};
+  categoryList.forEach((category) => {
+    const hasCategoryParent =
+      category.parentCategory && category.parentCategory !== "";
+    if (!hasCategoryParent) {
+      return (filteredCategories[category.name] = [category._id]);
+    } else {
+      return (filteredSubcategories[category.name] = [category.parentCategory]);
+    }
+  });
+  let finalCategories = {};
+  Object.keys(filteredCategories).forEach((category) => {
+    const categoryToSearch = filteredCategories[category][0];
+    const subcategories = Object.keys(filteredSubcategories).filter(
+      (subcategory) =>
+        filteredSubcategories[subcategory][0] === categoryToSearch
+    );
+
+    finalCategories[category] = subcategories;
+  });
+  return finalCategories;
+};
+
+const TabHeader = () => {
   const [categories, setCategories] = useState();
   const history = useHistory();
-  const [isShown, setIsShown] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:5001/categories`)
       .then((response) => response.json())
       .then((json) => {
-        const filteredCategories = {};
-        const filteredSubcategories = {};
-        json.forEach((category) => {
-          const hasCategoryParent =
-            category.parentCategory && category.parentCategory !== "";
-          if (!hasCategoryParent) {
-            return (filteredCategories[category.name] = [category._id]);
-          } else {
-            return (filteredSubcategories[category.name] = [
-              category.parentCategory,
-            ]);
-          }
-        });
-        let finalCategories = {};
-        Object.keys(filteredCategories).forEach((category) => {
-          const categoryToSearch = filteredCategories[category][0];
-          const subcategories = Object.keys(filteredSubcategories).filter(
-            (subcategory) =>
-              filteredSubcategories[subcategory][0] === categoryToSearch
-          );
-
-          finalCategories[category] = subcategories;
-        });
-        setCategories(finalCategories);
+        setCategories(agregateCategoriesAndSubcategories(json));
       });
   }, []);
-
+  console.log(selectedCategory);
   return (
     <div>
-      <div>
+      <div
+        onMouseLeave={() => setSelectedCategory(null)}
+        className="_headContainer"
+      >
         <div className="_tabheadContainer">
-          <div className="tab">
-            <span onClick={() => history.push("/")}>PORTADA</span>
-          </div>
-          <div className="tab">
-            <span onClick={() => history.push("/favouritePage")}>
-              FAVORITOS
-            </span>
-          </div>
-          <div onMouseLeave={() => setIsShown(false)}>
-            <div>
-              <div onMouseEnter={() => setIsShown(true)} className="tab">
-                {categories &&
-                  Object.keys(categories).map((category) => {
-                    return (
-                      <div>
-                        <span>{category}</span>
-                      </div>
-                    );
-                  })}
-
-                {/*  .forEach((key) => {
-                  return <span>{key.name}</span>;
-                })} */}
-
-                {console.log(categories)}
-              </div>
-            </div>
-          </div>
-          {isShown && (
-            <div className="_tabSubheadContainer">
-              <TabSubHeader
-                subcategories={
-                  categories &&
-                  Object.values(categories).map((subcategory) => {
-                    return subcategory;
-                  })
-                }
-              />
-            </div>
-          )}
+          <span onClick={() => history.push("/")}>PORTADA</span>
         </div>
+        <div className="_tabheadContainer">
+          <span onClick={() => history.push("/favouritePage")}>FAVORITOS</span>
+        </div>
+        {categories &&
+          Object.keys(categories).map((category) => {
+            return (
+              <div
+                className="_tabheadContainer"
+                onMouseEnter={() => setSelectedCategory(category)}
+              >
+                <span>{category}</span>
+              </div>
+            );
+          })}
+        {console.log(categories && categories.selectedCategory)}
+        {selectedCategory && (
+          <div>
+            <TabSubHeader
+              subcategories={
+                categories &&
+                categories[selectedCategory] &&
+                categories[selectedCategory].map((subcategory) => {
+                  return (
+                    <div className="_tabSubheadContainer">{subcategory}</div>
+                  );
+                })
+              }
+            />
+          </div>
+        )}
       </div>
     </div>
   );
