@@ -1,10 +1,8 @@
-import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import PlusIcon from "../../assets/plusIcon.png";
-
 import ButtonProductForm from "../buttonproductform/buttonproductform";
 import "./productform.css";
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const ProductForm = () => {
   const [selectedCategoriers, setSelectedCategories] = useState([]);
