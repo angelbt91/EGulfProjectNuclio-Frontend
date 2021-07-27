@@ -1,10 +1,9 @@
-import React, {useRef, useState, } from "react";
+import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import PlusIcon from "../../assets/plusIcon.png";
 import ButtonProductForm from "../buttonproductform/buttonproductform";
 
 import "./productform.css";
-
 
 function ProductForm() {
   const [imageArray, setImageArray] = useState([]);
@@ -14,44 +13,50 @@ function ProductForm() {
     description: String, //product
     images: String,
     shippingFee: Number,
-    owner: String,//sacar usuario;
+    owner: String, //sacar usuario;
     categoryId: String,
     usersFavs: [],
     createdAt: Date.now,
-    updateAt: Date.now };
+    updateAt: Date.now,
+  };
 
-  const submitImage = async(image) => {
+  const submitImage = async (image) => {
     const url = "https://api.cloudinary.com/v1_1/dnktf2sol/image/upload";
-    const uploadPreset ="unsigned";
-    const cloudinaryFolder ="egulf"
-    
+    const uploadPreset = "unsigned";
+    const cloudinaryFolder = "egulf";
+
     const formData = new FormData();
     formData.append("file", image);
     formData.append("upload_preset", uploadPreset);
-    formData.append( "folder", cloudinaryFolder);
+    formData.append("folder", cloudinaryFolder);
 
-    const options = {method: "POST", body: formData};
+    const options = { method: "POST", body: formData };
 
     const response = await fetch(url, options);
     const json = await response.json();
     return json;
-  }
-  const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm(AuctionFormValues);
-  
-  let imgUrls = []
-  console.log(imgUrls)
+  };
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    watch,
+    formState: { errors },
+  } = useForm(AuctionFormValues);
 
+  let imgUrls = [];
+  console.log(imgUrls);
 
-  const onSubmit =  async (data) => {
-    for(const img of imageArray) {
-      const image =  await submitImage(img);
+  const onSubmit = async (data) => {
+    for (const img of imageArray) {
+      const image = await submitImage(img);
       imgUrls.push(image.secure_url);
-      console.log(imgUrls)
+      console.log("This is length: " + imgUrls.length);
     }
-    setValue ("images", imgUrls)
-    
-    console.log(data)
-    
+    setValue("images", imgUrls);
+
+    console.log(data);
+
     const jsondata = JSON.stringify(data);
     if (Object.keys(errors).length !== 0) {
       alert(JSON.stringify(errors));
@@ -60,7 +65,7 @@ function ProductForm() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": "Bearer " + localStorage.getItem("token")
+          Authorization: "Bearer " + localStorage.getItem("token"),
         },
         body: jsondata,
       })
@@ -72,11 +77,10 @@ function ProductForm() {
     }
   };
   const handleUploadImage = (image) => {
-    setImageArray([image, ...imageArray])
-    
-  }
-  console.log(watch())
-  
+    setImageArray([image, ...imageArray]);
+  };
+  console.log(watch());
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div>
@@ -110,14 +114,14 @@ function ProductForm() {
             className="first_box"
             type="text"
             placeholder="Nombre del producto"
-            {...register("name", {required: true})}
+            {...register("name", { required: true })}
           ></input>
           {errors.name && <span>Campo requerido!</span>}
           <input
             className="second_box"
             type="text"
             placeholder="Descripción del producto"
-            {...register("description", {required: true})}
+            {...register("description", { required: true })}
           ></input>
           {errors.description && <span>Escribe una breve descripción.</span>}
         </div>
@@ -144,23 +148,21 @@ function ProductForm() {
           <div>
             <p className="product_details_title">Imágenes del producto</p>
           </div>
-          
-          <div className="container_img_picker">
-            
-            <ButtonProductForm getImage={handleUploadImage}/>
-            <ButtonProductForm getImage={handleUploadImage}/>
-            <ButtonProductForm getImage={handleUploadImage}/>
-            <ButtonProductForm getImage={handleUploadImage}/>
 
-          </div> 
+          <div className="container_img_picker">
+            <ButtonProductForm getImage={handleUploadImage} />
+            <ButtonProductForm getImage={handleUploadImage} />
+            <ButtonProductForm getImage={handleUploadImage} />
+            <ButtonProductForm getImage={handleUploadImage} />
+          </div>
         </div>
       </div>
-        <input 
+      <input
         className="_button_submit"
-          type="submit"
-          value="Submit"
-          //{...register}
-        />
+        type="submit"
+        value="Submit"
+        //{...register}
+      />
     </form>
   );
 }
