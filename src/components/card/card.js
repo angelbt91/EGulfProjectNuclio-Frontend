@@ -12,9 +12,9 @@ import HeartRed from "../../assets/heartRed.png";
 import ProductPage from "../../pages/productpage/productpage";
 import("./card.css");
 
-const Card = ({ img, name, rating, initprice, id }) => {
+const Card = ({ img, name, rating, initprice, id, nameUser }) => {
   const history = useHistory();
-  const url = "/productpage/" + id;
+  const url = "/product/" + id;
   const [condition, setCondition] = useState(true);
 
   return (
@@ -24,20 +24,19 @@ const Card = ({ img, name, rating, initprice, id }) => {
           <img src={img} className="cardImage" alt="" />
         </Link>
         <div className="banner">
-          <div className="banner_info">
-            <div className="banner_left">
-              <p>{name}</p>
-              <p>{rating}</p>
-              <img className="star_icon" src={Star} alt="icon-heart" />
-            </div>
-            <p className="banner_price">{initprice}</p>
-            <div onClick={() => setCondition(!condition)}>
-              <img
-                className="heart_icon"
-                src={condition ? Heart : HeartRed}
-                alt="icon-heart"
-              />
-            </div>
+          <span className="name_card">{name?.slice(0, 14)}</span>
+          <p className="nameUser_card">{nameUser}</p>
+
+          <p className="banner_price">{initprice}</p>
+          <p className="rating_card">{rating}</p>
+
+          <div onClick={() => setCondition(!condition)}>
+            <img className="star_icon" src={Star} alt="star" />
+            <img
+              className="heart_icon"
+              src={condition ? Heart : HeartRed}
+              alt="icon-heart"
+            />
           </div>
         </div>
       </div>
