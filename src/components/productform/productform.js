@@ -3,6 +3,7 @@ import PlusIcon from "../../assets/plusIcon.png";
 import ButtonProductForm from "../buttonproductform/buttonproductform";
 import "./productform.css";
 import React, { useState, useEffect, useRef } from "react";
+import { API_ROOT } from "../../utils/apiHost/apiHost";
 
 const ProductForm = () => {
   const [selectedCategoriers, setSelectedCategories] = useState([]);
@@ -38,7 +39,7 @@ const ProductForm = () => {
     const categoryname = reference.current;
     console.log(categoryname);
     const parent = selectedCategoriers[selectedCategoriers.length - 1];
-    fetch(`http://localhost:5001/categories/searchName/${parent}`, {
+    fetch(`${API_ROOT}categories/searchName/${parent}`, {
       method: "GET",
       "Content-Type": "application/json",
       headers: {},
@@ -47,7 +48,7 @@ const ProductForm = () => {
       .then((json) => {
         let category = json;
         const parentid = category[0]._id;
-        fetch("http://localhost:5001/categories", {
+        fetch("${API_ROOT}categories", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -70,7 +71,7 @@ const ProductForm = () => {
     const [subcateogryOptions, setSubcategoryOptions] = useState([]);
     // Haz el useEffect con el fetch a las categorias de la selectedSubcategory
     useEffect(() => {
-      fetch(`http://localhost:5001/categories/name/${selectedSubcategory}`, {
+      fetch(`${API_ROOT}categories/name/${selectedSubcategory}`, {
         method: "GET",
         "Content-Type": "application/json",
         headers: {},
@@ -93,7 +94,7 @@ const ProductForm = () => {
   const MainCategories = ({ onChange }) => {
     const [subcateogryOptions, setSubcategoryOptions] = useState([]);
     useEffect(() => {
-      fetch("http://localhost:5001/categories/", {
+      fetch(`${API_ROOT}categories/`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -189,7 +190,7 @@ const ProductForm = () => {
     if (Object.keys(errors).length !== 0) {
       alert(JSON.stringify(errors));
     } else {
-      fetch("http://localhost:5001/products", {
+      fetch(`${API_ROOT}products`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

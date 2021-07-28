@@ -1,9 +1,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { API_ROOT } from "../utils/apiHost/apiHost";
 
 export const useAuctions = (userId) => {
-  const url = "http://localhost:5001/auctions";
-  const userUrl = `http://localhost:5001/auctions/user/${userId}`;
+  const url = `${API_ROOT}auctions`;
+  const userUrl = `${API_ROOT}auctions/user/${userId}`;
   const [auctions, setAuctions] = useState(undefined);
   const [refreshAuctions, setRefreshAuctions] = useState(false);
 
