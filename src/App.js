@@ -8,6 +8,7 @@ import FavouritePage from "./pages/favouritepage/favouritepage";
 import CreateProductForm from "./pages/productformpage/productformpage";
 import "./App.css";
 import ProductFormPage from "./pages/productformpage/productformpage";
+import Breadcrumbs from "./components/breadcrumbs/breadcrumbs";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           width="99.9%"
           color="#D9D9D9"
         />
+        <Breadcrumbs />
         <Switch>
           <Route exact path="/login">
             <LoginPage />

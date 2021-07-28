@@ -1,4 +1,3 @@
-import BreadCrumber from "../../components/breadcrumber/breadcrumber";
 import "./productpage.css";
 import ProductGallery from "../../components/productGallery/productGallery";
 import ProductsList from "../../components/comp/product.json";
@@ -30,7 +29,6 @@ const ProductPage = () => {
   return (
     <div>
       <div className="productContainer">
-        <BreadCrumber />
         {
           <ProductGallery /> /*//TODO: URLimages={product.images} para pasar las imagenes desde productGallery */
         }
