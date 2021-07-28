@@ -48,7 +48,7 @@ const ProductForm = () => {
       .then((json) => {
         let category = json;
         const parentid = category[0]._id;
-        fetch("${API_ROOT}categories", {
+        fetch(`${API_ROOT}categories`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
