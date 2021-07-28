@@ -123,6 +123,18 @@ const ProductForm = () => {
 
   const [imageArray, setImageArray] = useState([]);
 
+  const ProductFormValues = {
+    name: String, //product
+    description: String, //product
+    images: String,
+    shippingFee: Number,
+    owner: String, //sacar usuario;
+    categoryId: String,
+    usersFavs: [],
+    createdAt: Date.now,
+    updateAt: Date.now,
+  };
+
   const AuctionFormValues = {
     name: String, //product
     description: String, //product
@@ -168,6 +180,7 @@ const ProductForm = () => {
       imgUrls.push(image.secure_url);
       console.log("This is length: " + imgUrls.length);
     }
+
     setValue("images", imgUrls);
 
     console.log(data);
@@ -176,7 +189,7 @@ const ProductForm = () => {
     if (Object.keys(errors).length !== 0) {
       alert(JSON.stringify(errors));
     } else {
-      fetch("http://localhost:5001/auctions", {
+      fetch("http://localhost:5001/products", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
