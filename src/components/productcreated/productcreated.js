@@ -29,11 +29,8 @@ const ProductCreated = () => {
         });
 
     }, []);  
-
-  
-    const [acumulador, setAcumulador] = useState(0) 
+ 
     let ventas = 0
-    let vendido = 0
     let productVendidos = [];
     let productEnVenta = [];
     
@@ -77,7 +74,7 @@ const ProductCreated = () => {
                 name={venta.productId.name}
                 nameUser={venta.productId.owner.name}
                 rating={venta.productId.owner.rating}
-                initprice={venta.startingPrice}
+                initprice={venta.productId.currentPrice}
                 id={venta._id}
                 
                 />                          
@@ -95,7 +92,7 @@ const ProductCreated = () => {
                 name={vendido.productId.name}
                 nameUser={vendido.productId.owner.name}
                 rating={vendido.productId.owner.rating}
-                initprice={vendido.startingPrice}
+                initprice={vendido.productId.currentPrice}
                 id={vendido._id}
                 />                          
             ))}
