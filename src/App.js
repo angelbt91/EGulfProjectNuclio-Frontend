@@ -8,6 +8,7 @@ import FavouritePage from "./pages/favouritepage/favouritepage";
 import CreateProductForm from "./pages/productformpage/productformpage";
 import "./App.css";
 import ProductFormPage from "./pages/productformpage/productformpage";
+import ProductCratedPage from "../src/components/productcreated/productcreated";
 
 function App() {
   return (
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route exact path="/me/favorites">
             <FavouritePage />
+          </Route>
+          <Route exact path="/me/productcreatedpage/">
+            <ProductCratedPage />
           </Route>
           <Route exact path="/productformpage">
             <ProductFormPage />
