@@ -13,7 +13,7 @@ const ProductPage = () => {
   const history = useHistory();
 
   useEffect(() => {
-    `http://localhost:5001/auctions/${id}`
+    fetch(`http://localhost:5001/auctions/${id}`)
       .then((response) => {
         if (response.status != 200) {
           throw "Auction couldn't be found. Check the id!";
