@@ -49,7 +49,6 @@ const ProductCreated = () => {
               productEnVenta.push(auction);
             }
           })}
-
         <h1 className="titulo_box">Mis articulos en venta</h1>
         <div className="box">
           <p className="titulo_inside_box">
