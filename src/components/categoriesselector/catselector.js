@@ -1,6 +1,7 @@
 import "./catselector.css";
 import { useState, useEffect, useRef } from "react";
 import React from "react";
+import { API_ROOT } from "../../utils/apiHost/apiHost";
 
 const catSelector = () => {
   const [selectedCategoriers, setSelectedCategories] = useState([]);
@@ -36,7 +37,7 @@ const catSelector = () => {
     const categoryname = reference.current;
     console.log(categoryname);
     const parent = selectedCategoriers[selectedCategoriers.length - 1];
-    fetch(`http://localhost:5001/categories/searchName/${parent}`, {
+    fetch(`${API_ROOT}categories/searchName/${parent}`, {
       method: "GET",
       "Content-Type": "application/json",
       headers: {},
@@ -45,7 +46,7 @@ const catSelector = () => {
       .then((json) => {
         let category = json;
         const parentid = category[0]._id;
-        fetch("http://localhost:5001/categories", {
+        fetch(`${API_ROOT}categories`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -68,7 +69,7 @@ const catSelector = () => {
     const [subcateogryOptions, setSubcategoryOptions] = useState([]);
     // Haz el useEffect con el fetch a las categorias de la selectedSubcategory
     useEffect(() => {
-      fetch(`http://localhost:5001/categories/name/${selectedSubcategory}`, {
+      fetch(`${API_ROOT}categories/name/${selectedSubcategory}`, {
         method: "GET",
         "Content-Type": "application/json",
         headers: {},
@@ -91,7 +92,7 @@ const catSelector = () => {
   const MainCategories = ({ onChange }) => {
     const [subcateogryOptions, setSubcategoryOptions] = useState([]);
     useEffect(() => {
-      fetch("http://localhost:5001/categories/", {
+      fetch(`${API_ROOT}categories/`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
