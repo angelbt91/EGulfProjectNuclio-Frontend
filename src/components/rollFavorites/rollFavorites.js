@@ -1,9 +1,10 @@
 import Card from "../card/card";
 import "./rollFavorites.css";
 import { useEffect, useState } from "react";
+import { API_ROOT } from "../../utils/apiHost/apiHost";
 
 const RollFavorites = () => {
-  const url = "http://localhost:5001/users/me/favorites";
+  const url = `${API_ROOT}users/me/favorites`;
   const [favorites, setFavorites] = useState(undefined);
   const [refreshFavorites, setRefreshFavorites] = useState(false);
   useEffect(() => {
