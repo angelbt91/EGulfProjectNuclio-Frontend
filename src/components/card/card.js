@@ -30,7 +30,7 @@ const Card = ({
 
   const updateFavorite = () => {
     setIsFavorite(!isFavorite);
-    fetch(`http://localhost:5001/products/${id}/favorite`, {
+    fetch(`${API_ROOT}products/${id}/favorite`, {
       method: isFavorite ? "DELETE" : "PUT",
       headers: {
         "Content-Type": "application/json",
