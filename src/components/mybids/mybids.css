@@ -1,0 +1,93 @@
+.titulo_mispujas {
+  margin-left: 8.5rem;
+  margin-top: 4.18rem;
+  margin-bottom: 2.18rem;
+  font-size: 24px;
+}
+.counter {
+  height: 153px;
+  width: 1166px;
+  border: 1px solid #e5e5e5;
+  margin-left: 8.5rem;
+  background: #f9f9f9;
+}
+.counter_ganando {
+  position: absolute;
+  margin-left: 64px;
+  margin-top: 48px;
+  font-size: 48px;
+}
+.counter_noGanando {
+  position: absolute;
+  margin-left: 214px;
+  margin-top: 48px;
+  font-size: 48px;
+}
+.counter_perdida {
+  position: absolute;
+  margin-left: 383px;
+  margin-top: 48px;
+  font-size: 48px;
+}
+.titulo_ganando {
+  position: absolute;
+  margin-left: 103px;
+  margin-top: 65px;
+  font-size: 18px;
+  color: #798591;
+}
+.titulo_Noganando {
+  position: absolute;
+  margin-left: 252px;
+  margin-top: 65px;
+  font-size: 18px;
+  color: #798591;
+}
+
+.titulo_perdida {
+  position: absolute;
+  margin-left: 421px;
+  margin-top: 65px;
+  font-size: 18px;
+  color: #798591;
+}
+.subastas {
+  margin-left: 136px;
+  font-size: 24px;
+  font-weight: bold;
+  padding-top: 67px;
+}
+.Sub_activas_perdiendo {
+  margin-top: 300px;
+}
+.Sub_activas_perdidas {
+  margin-top: 300px;
+  padding-bottom: 200px;
+}
+.subastas > span {
+  font-size: 14px;
+}
+.tu_puja {
+  margin-left: 288px;
+}
+.puja_maxima {
+  margin-left: 32px;
+}
+.acaba_en {
+  margin-left: 40px;
+  color: #798590;
+}
+
+.price_tupuja {
+  font-size: 18px;
+  margin-left: -120px;
+  color: #083d77;
+}
+.price_pujamaxima {
+  font-size: 18px;
+  margin-left: 400px;
+}
+.fin_puja {
+  margin-left: 165px;
+  color: #798590;
+}
