@@ -24,13 +24,14 @@ const Card = ({
 }) => {
   const history = useHistory();
   const url = "/product/" + id;
+
   const [isFavorite, setIsFavorite] = useState(usersFavs);
   const localStorageToken = localStorage.getItem("token");
 
   const updateFavorite = () => {
     setIsFavorite(!isFavorite);
     fetch(`http://localhost:5001/products/${id}/favorite`, {
-      method: isFavorite ? "PUT" : "DELETE",
+      method: isFavorite ? "DELETE" : "PUT",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${localStorageToken}`,
@@ -59,7 +60,7 @@ const Card = ({
             <img className="star_icon" src={Star} alt="star" />
             <img
               className="heart_icon"
-              src={isFavorite ? Heart : HeartRed}
+              src={isFavorite ? HeartRed : Heart}
               alt="icon-heart"
             />
           </div>
