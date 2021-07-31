@@ -10,6 +10,7 @@ import Heart from "../../assets/heart.png";
 import Star from "../../assets/star.png";
 import HeartRed from "../../assets/heartRed.png";
 import ProductPage from "../../pages/productpage/productpage";
+import { API_ROOT } from "../../utils/apiHost/apiHost";
 import("./card.css");
 
 const Card = ({
