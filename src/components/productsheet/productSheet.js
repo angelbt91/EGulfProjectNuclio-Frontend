@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
+import { API_ROOT } from "../../utils/apiHost/apiHost";
 
 const ProductSheet = ({ title, description, initprice, iduser, rating }) => {
   const { id } = useParams();
@@ -33,7 +34,7 @@ const ProductSheet = ({ title, description, initprice, iduser, rating }) => {
       const bidAmount = dataOnSubmit.bids;
       const body = { bidAmount };
       const localStorageToken = localStorage.getItem("token");
-      fetch(`http://localhost:5001/auctions/${id}/currentAuction/bid`, {
+      fetch(`${API_ROOT}auctions/${id}/currentAuction/bid`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -41,7 +42,7 @@ const ProductSheet = ({ title, description, initprice, iduser, rating }) => {
         },
         body: JSON.stringify(body),
       }).then(() => {
-        fetch(`http://localhost:5001/auctions/${id}/currentAuction`)
+        fetch(`${API_ROOT}auctions/${id}/currentAuction`)
           .then((response) => response.json())
           .then((data) => handleData(data))
           .catch((err) => console.log(err));
@@ -52,7 +53,7 @@ const ProductSheet = ({ title, description, initprice, iduser, rating }) => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5001/auctions/${id}/currentAuction`)
+    fetch(`${API_ROOT}auctions/${id}/currentAuction`)
       .then((response) => response.json())
       .then((data) => handleData(data))
       .catch((err) => console.log(err));
