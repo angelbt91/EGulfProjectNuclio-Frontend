@@ -1,42 +1,65 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
 import {
   Breadcrumbs as MUIBreadcrumbs,
   Link,
   Typography,
 } from "@material-ui/core";
-import { withRouter } from "react-router-dom";
+import { withRouter, useParams } from "react-router-dom";
+import { routeNames } from "./breadcrumbs.constants";
+import { env } from "yargs";
 
 const Breadcrumbs = (props) => {
-  const {
-    history,
-    location: { pathname },
-  } = props;
-
-  const pathnames = pathname.split("/").filter((x) => x);
-  console.log("*****");
+  const { history, location } = props;
+  const { id } = useParams();
+  const [product, setProduct] = useState();
+  const pathnames = location.pathname.split("/").filter((x) => x);
+  const isProductPage =
+    pathnames.some((path) => path === "product" || path === "productpage") &&
+    pathnames.length > 1;
+  console.log(location);
   console.log(pathnames);
 
+  useEffect(() => {
+    fetch(`${REACT_API_ROOT}product/${id}`)
+      .then((response) => {
+        if (response.status != 200) {
+          throw "Product couldn't be found. Check the id!";
+        }
+        return response.json();
+      })
+      .then((json) => setProduct(json))
+      .catch((error) => {
+        console.log(error);
+        history.push("/");
+      });
+  }, [id]);
+  console.log(product);
+
+  //una variable de useState para crear un fetch a la base de datos y con el id de generic product buscar el producto
   return (
     <MUIBreadcrumbs aria-label="breadcrumb" className="breadcrumbsPosition">
       {pathnames.length > 0 ? (
         <Link color="inherit" onClick={() => history.push("/")}>
           Home
         </Link>
-      ) : (
-        <Typography> Home </Typography>
-      )}
+      ) : null}
       {pathnames.map((name, index) => {
         const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
-        const isLast = index === pathnames.lenght - 1;
+        const isLast = index === pathnames.length - 1;
+        const displayName = routeNames.find((route) => route.name === name);
+
         return isLast ? (
-          <Typography key={name}> {name} </Typography>
+          <Typography key={name}>
+            {" "}
+            {isProductPage ? product.name : displayName?.label || name}{" "}
+          </Typography>
         ) : (
           <Link
             key={name}
             color="inherit"
             onClick={() => history.push(routeTo)}
           >
-            {name}
+            {displayName?.label || name}
           </Link>
         );
       })}

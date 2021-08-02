@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useHistory,
+} from "react-router-dom";
 import Footer from "./components/footer/footer";
 import LoginPage from "./pages/loginpage/loginpage";
 import MainPage from "./pages/mainpage/mainpage";
