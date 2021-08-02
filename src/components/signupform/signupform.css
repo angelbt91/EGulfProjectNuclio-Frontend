@@ -1,0 +1,9 @@
+.photo-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.main-photo {
+  display: flex;
+  justify-content: center;
+}
