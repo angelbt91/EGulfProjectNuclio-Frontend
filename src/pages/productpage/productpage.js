@@ -5,6 +5,7 @@ import ProductSheet from "../../components/productsheet/productSheet";
 import Roll from "../../components/roll/roll";
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
+import { API_ROOT } from "../../utils/apiHost/apiHost";
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -12,7 +13,7 @@ const ProductPage = () => {
   const history = useHistory();
 
   useEffect(() => {
-    fetch(`http://localhost:5001/auctions/${id}`)
+    fetch(`${API_ROOT}auctions/${id}`)
       .then((response) => {
         if (response.status != 200) {
           throw "Auction couldn't be found. Check the id!";

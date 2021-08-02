@@ -2,6 +2,7 @@ import "./loginform.css";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
+import { API_ROOT } from "../../utils/apiHost/apiHost";
 
 const LoginForm = () => {
   const {
@@ -17,7 +18,7 @@ const LoginForm = () => {
     if (Object.keys(errors).length !== 0) {
       alert(JSON.stringify(errors));
     } else {
-      fetch("http://localhost:5001/auth/login", {
+      fetch(`${API_ROOT}auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

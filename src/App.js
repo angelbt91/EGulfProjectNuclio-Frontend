@@ -14,6 +14,8 @@ import CreateProductForm from "./pages/productformpage/productformpage";
 import "./App.css";
 import ProductFormPage from "./pages/productformpage/productformpage";
 import Breadcrumbs from "./components/breadcrumbs/breadcrumbs";
+import ProductCratedPage from "../src/components/productcreated/productcreated";
+import MyBidsPage from "./pages/mybidspage/mybidspage";
 
 function App() {
   return (
@@ -40,8 +42,14 @@ function App() {
           <Route exact path="/me/favorites">
             <FavouritePage />
           </Route>
+          <Route exact path="/me/productcreatedpage/">
+            <ProductCratedPage />
+          </Route>
           <Route exact path="/productformpage">
             <ProductFormPage />
+          </Route>
+          <Route exact path="/mybidspage">
+            <MyBidsPage />
           </Route>
         </Switch>
         <Footer />

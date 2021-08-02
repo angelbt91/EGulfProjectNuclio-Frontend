@@ -2,6 +2,7 @@ import "./tabheader.css";
 import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import TabSubHeader from "../tabsubheader/tabsubheader";
+import { API_ROOT } from "../../utils/apiHost/apiHost";
 
 const agregateCategoriesAndSubcategories = (categoryList) => {
   const filteredCategories = {};
@@ -31,7 +32,7 @@ const TabHeader = () => {
   const history = useHistory();
   const [selectedCategory, setSelectedCategory] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:5001/categories`)
+    fetch(`${API_ROOT}categories`)
       .then((response) => response.json())
       .then((json) => {
         setCategories(agregateCategoriesAndSubcategories(json));
