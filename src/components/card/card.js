@@ -24,7 +24,7 @@ const Card = ({
   refreshFavorites,
 }) => {
   const history = useHistory();
-  const url = "/product/" + id;
+  const url = "/productpage/" + id;
 
   const [isFavorite, setIsFavorite] = useState(usersFavs);
   const localStorageToken = localStorage.getItem("token");
@@ -47,7 +47,7 @@ const Card = ({
   return (
     <Router>
       <div className="container">
-        <Link to={url} onClick={() => history.push("/productpage/" + id)}>
+        <Link to={url} onClick={() => history.push(url)}>
           <img src={img} className="cardImage" alt="" />
         </Link>
         <div className="banner">

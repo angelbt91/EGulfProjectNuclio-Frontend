@@ -38,10 +38,10 @@ const ProductPage = () => {
         }
         {product && (
           <ProductSheet
-            title={product.productId.name}
-            description={product.productId.description}
-            initprice={product.startingPrice}
-            iduser={product.productId.owner.name}
+            title={product.name}
+            description={product.description}
+            initprice={product.currentPrice}
+            iduser={product.owner.name}
             rating={ProductsList[5].rating} //TODO: cuando exista el rating de user, añadirlo aquí (y popular en back)
           />
         )}
