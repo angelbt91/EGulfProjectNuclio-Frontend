@@ -8,6 +8,7 @@ import FavouritePage from "./pages/favouritepage/favouritepage";
 import CreateProductForm from "./pages/productformpage/productformpage";
 import "./App.css";
 import ProductFormPage from "./pages/productformpage/productformpage";
+import SearchPage from "./pages/searchpage/searchpage";
 
 function App() {
   return (
@@ -35,6 +36,9 @@ function App() {
           </Route>
           <Route exact path="/productformpage">
             <ProductFormPage />
+          </Route>
+          <Route exact path="/searchpage/:id">
+            <SearchPage />
           </Route>
         </Switch>
         <Footer />

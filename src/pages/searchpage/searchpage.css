@@ -1,0 +1,33 @@
+.cardsContainer {
+  display: flex;
+  position: relative;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-self: auto;
+  margin-left: 17rem;
+  margin-top: 4rem;
+}
+
+.paginationContainer {
+  display: flex;
+  position: absolute;
+  right: 5rem;
+  top: 48rem;
+  list-style-type: none;
+}
+
+.pageNumber,
+.previousButton,
+.nextButton {
+  margin-left: 1rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.paginationActive {
+  width: 24px;
+  height: 24px;
+  color: #da4167;
+  border: solid #da4167;
+  border-radius: 0px;
+}

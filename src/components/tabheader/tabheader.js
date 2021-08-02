@@ -1,5 +1,5 @@
 import "./tabheader.css";
-import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router";
 import { useState, useEffect } from "react";
 import TabSubHeader from "../tabsubheader/tabsubheader";
 const agregateCategoriesAndSubcategories = (categoryList) => {
@@ -14,6 +14,8 @@ const agregateCategoriesAndSubcategories = (categoryList) => {
       return (filteredSubcategories[category.name] = [category.parentCategory]);
     }
   });
+  console.log(filteredCategories);
+  console.log(filteredSubcategories);
   let finalCategories = {};
   Object.keys(filteredCategories).forEach((category) => {
     const categoryToSearch = filteredCategories[category][0];
@@ -23,9 +25,10 @@ const agregateCategoriesAndSubcategories = (categoryList) => {
     );
     finalCategories[category] = subcategories;
   });
+  console.log(finalCategories);
   return finalCategories;
 };
-const TabHeader = () => {
+const TabHeader = ({ id }) => {
   const [categories, setCategories] = useState();
   const history = useHistory();
   const [selectedCategory, setSelectedCategory] = useState(false);
@@ -36,7 +39,6 @@ const TabHeader = () => {
         setCategories(agregateCategoriesAndSubcategories(json));
       });
   }, []);
-  console.log(selectedCategory);
   return (
     <div>
       <div
@@ -60,7 +62,6 @@ const TabHeader = () => {
               </div>
             );
           })}
-        {console.log(categories && categories.selectedCategory)}
         {selectedCategory && (
           <div>
             <TabSubHeader
@@ -68,8 +69,14 @@ const TabHeader = () => {
                 categories &&
                 categories[selectedCategory] &&
                 categories[selectedCategory].map((subcategory) => {
+                  console.log(subcategory);
                   return (
-                    <div className="_tabSubheadContainer">{subcategory}</div>
+                    <div
+                      className="_tabSubheadContainer"
+                      onClick={() => history.push("/searchpage/" + id)}
+                    >
+                      {subcategory}
+                    </div>
                   );
                 })
               }

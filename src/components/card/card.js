@@ -14,15 +14,18 @@ import("./card.css");
 
 const Card = ({ img, name, rating, initprice, id, nameUser }) => {
   const history = useHistory();
-  const url = "/product/" + id;
   const [condition, setCondition] = useState(true);
 
   return (
     <Router>
       <div className="container">
-        <Link to={url} onClick={() => history.push("/productpage/" + id)}>
-          <img src={img} className="cardImage" alt="" />
-        </Link>
+        <img
+          src={img}
+          className="cardImage"
+          alt=""
+          onClick={() => history.push("/productpage/" + id)}
+        />
+
         <div className="banner">
           <span className="name_card">{name?.slice(0, 14)}</span>
           <p className="nameUser_card">{nameUser}</p>
