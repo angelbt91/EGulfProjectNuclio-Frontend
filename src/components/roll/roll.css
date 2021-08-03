@@ -1,19 +1,31 @@
-.main_roll {
+/* .main_roll {
   width: 100%;
   margin-top: 22px;
   margin-bottom: 22px;
   margin-left: 170px;
-}
-.card_roll {
+} */
+/* .card_roll {
   display: flex;
-  gap: 10px;
+  gap: 30px;
   flex-wrap: wrap;
-  align-self: auto;
 }
 
 .main_roll > h3 {
-  text-align: start;
-  margin-left: 10%;
+  position: absolute;
+
+  margin-left: 30%;
   font-weight: bold;
   font-size: 24px;
+}
+ */
+.titulo_principal {
+  margin-left: 110px;
+  margin-top: 43px;
+  font-size: 24px;
+}
+.container_card_roll {
+  margin-left: 70px;
+}
+.card_roll {
+  gap: 20px;
 }
