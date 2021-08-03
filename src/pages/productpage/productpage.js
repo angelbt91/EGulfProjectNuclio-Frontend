@@ -10,24 +10,25 @@ import { API_ROOT } from "../../utils/apiHost/apiHost";
 
 const ProductPage = () => {
   const { id } = useParams();
-  const [auction, setauction] = useState();
+  const [product, setProduct] = useState();
   const history = useHistory();
 
   useEffect(() => {
-    fetch(`${API_ROOT}auctions/${id}`)
+    fetch(`${API_ROOT}products/${id}`)
       .then((response) => {
         if (response.status != 200) {
-          throw "Auction couldn't be found. Check the id!";
+          throw "Products couldn't be found. Check the id!";
         }
         return response.json();
       })
-      .then((json) => setauction(json))
+      .then((json) => setProduct(json))
       .catch((error) => {
         console.log(error);
         history.push("/");
       });
   }, [id]);
-  console.log(auction);
+  console.log(product);
+
   return (
     <div>
       <div className="productContainer">
@@ -35,12 +36,12 @@ const ProductPage = () => {
         {
           <ProductGallery /> /*//TODO: URLimages={product.images} para pasar las imagenes desde productGallery */
         }
-        {auction && (
+        {product && (
           <ProductSheet
-            title={auction.productId.name}
-            description={auction.productId.description}
-            initprice={auction.startingPrice}
-            iduser={auction.productId.owner.name}
+            title={product.name}
+            description={product.description}
+            initprice={product.currentPrice}
+            iduser={product.owner.name}
             rating={ProductsList[5].rating} //TODO: cuando exista el rating de user, añadirlo aquí (y popular en back)
           />
         )}

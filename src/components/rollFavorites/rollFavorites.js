@@ -6,7 +6,8 @@ import { API_ROOT } from "../../utils/apiHost/apiHost";
 const RollFavorites = () => {
   const url = `${API_ROOT}users/me/favorites`;
   const [favorites, setFavorites] = useState(undefined);
-  const [refreshFavorites, setrefReshFavorites] = useState(false);
+  const [refreshFavorites, setRefreshFavorites] = useState(false);
+
   useEffect(() => {
     fetch(url, {
       method: "GET",
@@ -23,8 +24,7 @@ const RollFavorites = () => {
         }
       })
       .then((data) => {
-        let FavoriteUser = data;
-        setFavorites(FavoriteUser);
+        setFavorites(data);
       })
       .catch((error) => {
         console.error(error);
@@ -42,7 +42,8 @@ const RollFavorites = () => {
               id={favorite._id}
               nameUser={favorite.owner.name}
               rating={favorite.owner.rating}
-              onchangeFavorite={() => setrefReshFavorites(!refreshFavorites)}
+              refreshFavorites={() => setRefreshFavorites(!refreshFavorites)}
+              usersFavs={true}
             />
           ))}
       </div>
