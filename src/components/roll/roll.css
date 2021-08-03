@@ -24,8 +24,12 @@
   font-size: 24px;
 }
 .container_card_roll {
+  width: 100%;
   margin-left: 70px;
 }
 .card_roll {
-  gap: 20px;
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  align-self: auto;
 }
