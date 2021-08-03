@@ -1,6 +1,5 @@
 import React from "react";
 import "./mybids.css";
-import { API_ROOT } from "../../utils/apiHost/apiHost";
 
 const MyBids = () => {
   return (

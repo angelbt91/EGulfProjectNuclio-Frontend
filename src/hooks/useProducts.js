@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect, useState } from "react";
 import { API_ROOT } from "../utils/apiHost/apiHost";
 
