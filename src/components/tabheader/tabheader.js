@@ -3,30 +3,20 @@ import { useHistory } from "react-router";
 import { useState, useEffect } from "react";
 import TabSubHeader from "../tabsubheader/tabsubheader";
 const agregateCategoriesAndSubcategories = (categoryList) => {
-  const filteredCategories = {};
-  const filteredSubcategories = {};
-  categoryList.forEach((category) => {
-    const hasCategoryParent =
-      category.parentCategory && category.parentCategory !== "";
-    if (!hasCategoryParent) {
-      return (filteredCategories[category.name] = [category._id]);
-    } else {
-      return (filteredSubcategories[category.name] = [category.parentCategory]);
-    }
-  });
-  console.log(filteredCategories);
-  console.log(filteredSubcategories);
-  let finalCategories = {};
-  Object.keys(filteredCategories).forEach((category) => {
-    const categoryToSearch = filteredCategories[category][0];
-    const subcategories = Object.keys(filteredSubcategories).filter(
-      (subcategory) =>
-        filteredSubcategories[subcategory][0] === categoryToSearch
-    );
-    finalCategories[category] = subcategories;
-  });
-  console.log(finalCategories);
-  return finalCategories;
+  return categoryList
+      .filter(category => !category.parentCategory)
+      .map(parentCategory => ({name: parentCategory.name, id: parentCategory._id, subcategories: []}))
+      .map(parentCategory => {
+        const childs = [];
+
+        for (const category of categoryList) {
+          const categoryIsChild = (category.parentCategory && category.parentCategory === parentCategory.id);
+          if (categoryIsChild) childs.push({name: category.name, id: category._id});
+        }
+
+        parentCategory.subcategories.push(...childs);
+        return parentCategory;
+      });
 };
 const TabHeader = ({ id }) => {
   const [categories, setCategories] = useState();
