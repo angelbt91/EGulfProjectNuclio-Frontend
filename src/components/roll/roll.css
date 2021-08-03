@@ -6,15 +6,14 @@
 }
 .card_roll {
   display: flex;
-  gap: 40px;
+  gap: 10px;
   flex-wrap: wrap;
   align-self: auto;
 }
 
 .main_roll > h3 {
   text-align: start;
-  margin-left: 4%;
+  margin-left: 10%;
   font-weight: bold;
   font-size: 24px;
-  margin-left: 1rem;
 }
