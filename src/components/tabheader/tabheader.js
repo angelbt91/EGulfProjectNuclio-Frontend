@@ -52,11 +52,12 @@ const TabHeader = () => {
           <span onClick={() => history.push("/favouritePage")}>FAVORITOS</span>
         </div>
         {categories &&
-          Object.keys(categories).map((category) => {
+          Object.keys(categories).map((category, index) => {
             return (
               <div
                 className="_tabheadContainer"
                 onMouseEnter={() => setSelectedCategory(category)}
+                key={`header_container${index}`}
               >
                 <span>{category}</span>
               </div>
@@ -69,9 +70,14 @@ const TabHeader = () => {
               subcategories={
                 categories &&
                 categories[selectedCategory] &&
-                categories[selectedCategory].map((subcategory) => {
+                categories[selectedCategory].map((subcategory, index) => {
                   return (
-                    <div className="_tabSubheadContainer">{subcategory}</div>
+                    <div
+                      className="_tabSubheadContainer"
+                      key={`subheader_container${index}`}
+                    >
+                      {subcategory}
+                    </div>
                   );
                 })
               }

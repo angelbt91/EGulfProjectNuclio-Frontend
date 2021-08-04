@@ -11,8 +11,9 @@ const Roll = ({ title }) => {
         {products &&
           products
             .slice(0, 4)
-            .map((product) => (
+            .map((product, index) => (
               <Card
+                key={`card${index}`}
                 img={product.images[0]}
                 name={product.name}
                 rating={product.owner.rating}
