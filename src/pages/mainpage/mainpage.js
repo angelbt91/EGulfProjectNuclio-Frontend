@@ -1,6 +1,6 @@
 import "./mainpage.css";
 import TabHeader from "../../components/tabheader/tabheader";
-import TabSubHeader from "../../components/tabsubheader/tabsubheader";
+//import TabSubHeader from "../../components/tabsubheader/tabsubheader";
 import AdBanner from "../../components/adbanner/adbanner";
 import Roll from "../../components/roll/roll";
 

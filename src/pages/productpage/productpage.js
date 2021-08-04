@@ -17,7 +17,8 @@ const ProductPage = () => {
     fetch(`${API_ROOT}products/${id}`)
       .then((response) => {
         if (response.status != 200) {
-          throw "Products couldn't be found. Check the id!";
+          //corregir !=
+          throw "Products couldn't be found. Check the id!"; // CORREGIR, espera lanzar un error
         }
         return response.json();
       })

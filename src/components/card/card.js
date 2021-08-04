@@ -1,15 +1,8 @@
-import {
-  Link,
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  useHistory,
-} from "react-router-dom";
+import { Link, BrowserRouter as Router, useHistory } from "react-router-dom";
 import React, { useState } from "react";
 import Heart from "../../assets/heart.png";
 import Star from "../../assets/star.png";
 import HeartRed from "../../assets/heartRed.png";
-import ProductPage from "../../pages/productpage/productpage";
 import { API_ROOT } from "../../utils/apiHost/apiHost";
 import("./card.css");
 

@@ -1,7 +1,5 @@
 import Card from "../card/card";
-import ProductsList from "../comp/product.json";
 import "./roll.css";
-import { useEffect, useState } from "react";
 import { useProducts } from "../../hooks/useProducts";
 
 const Roll = ({ title }) => {
@@ -9,13 +7,13 @@ const Roll = ({ title }) => {
   return (
     <div className="main_roll">
       <h3>{title}</h3>
-
       <div className="card_roll">
         {products &&
           products
             .slice(0, 4)
-            .map((product) => (
+            .map((product, index) => (
               <Card
+                key={`card${index}`}
                 img={product.images[0]}
                 name={product.name}
                 rating={product.owner.rating}

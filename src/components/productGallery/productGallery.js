@@ -4,7 +4,7 @@ import GalleryImage from "../galleryimage/galleryImage";
 import { useState } from "react";
 
 const ProductGallery = () => {
-  const [images, setImages] = useState(ProductsList[5].img);
+  const [images, setImages] = useState(ProductsList[5].img); //Use or remove setImages
   return (
     <div className="galleryContainer">
       <div className="imgMasterContainer">
