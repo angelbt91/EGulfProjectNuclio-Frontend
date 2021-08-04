@@ -24,11 +24,8 @@
   font-size: 24px;
 }
 .container_card_roll {
-  width: 100%;
-  margin-left: 70px;
+  margin-left: 60px;
 }
-/* .card_roll {
-  display: flex;
-  gap: 59px;
-  flex-wrap: wrap;
-} */
+.card_roll {
+  margin-left: 20px;
+}
