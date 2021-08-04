@@ -1,0 +1,66 @@
+.photoform_container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 150px;
+  background-color: rgba(166, 174, 233, 0.116);
+  width: 550px;
+}
+
+.main_photo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 40px;
+  color: white;
+}
+
+.photoform_container > form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 19%;
+  margin-right: 19%;
+}
+
+form > input#name,
+form > input#email,
+form > input#password {
+  margin-top: 7%;
+  margin-bottom: 7%;
+  height: 45px;
+  font-size: medium;
+  border: 2px solid rgb(224, 224, 224);
+}
+
+.registry_form > span[role="alert"] {
+  color: #da4167;
+  font-size: 0.8em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.text_container {
+  text-align: left;
+  margin-top: 13px;
+  color: #798590;
+  line-height: 0.25em;
+}
+
+.submit_registry {
+  margin: auto;
+  margin-top: 35px;
+  margin-bottom: 60px;
+  height: 35px;
+  font-size: 0.9em;
+  font-weight: bold;
+  background-color: #0e4a8a;
+  height: 50px;
+  width: 187px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}

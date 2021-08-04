@@ -10,6 +10,7 @@ import "./App.css";
 import ProductFormPage from "./pages/productformpage/productformpage";
 import ProductCratedPage from "../src/components/productcreated/productcreated";
 import MyBidsPage from "./pages/mybidspage/mybidspage";
+import SignUpPage from "./pages/signuppage/signuppage";
 
 function App() {
   return (
@@ -43,6 +44,9 @@ function App() {
           </Route>
           <Route exact path="/mybidspage">
             <MyBidsPage />
+          </Route>
+          <Route exact path="/signup">
+            <SignUpPage />
           </Route>
         </Switch>
         <Footer />
