@@ -28,7 +28,6 @@ function App() {
           width="99.9%"
           color="#D9D9D9"
         />
-        <Breadcrumbs />
         <Switch>
           <Route exact path="/login">
             <LoginPage />

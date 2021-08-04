@@ -6,7 +6,7 @@ import {
 } from "@material-ui/core";
 import { withRouter, useParams } from "react-router-dom";
 import { routeNames } from "./breadcrumbs.constants";
-import { env } from "yargs";
+import { API_ROOT } from "../../utils/apiHost/apiHost";
 
 const Breadcrumbs = (props) => {
   const { history, location } = props;
@@ -18,9 +18,10 @@ const Breadcrumbs = (props) => {
     pathnames.length > 1;
   console.log(location);
   console.log(pathnames);
-
+  console.log(product);
+  console.log(id);
   useEffect(() => {
-    fetch(`${REACT_API_ROOT}product/${id}`)
+    fetch(`${API_ROOT}auctions/${id}`)
       .then((response) => {
         if (response.status != 200) {
           throw "Product couldn't be found. Check the id!";
@@ -30,10 +31,8 @@ const Breadcrumbs = (props) => {
       .then((json) => setProduct(json))
       .catch((error) => {
         console.log(error);
-        history.push("/");
       });
   }, [id]);
-  console.log(product);
 
   //una variable de useState para crear un fetch a la base de datos y con el id de generic product buscar el producto
   return (
@@ -51,7 +50,9 @@ const Breadcrumbs = (props) => {
         return isLast ? (
           <Typography key={name}>
             {" "}
-            {isProductPage ? product.name : displayName?.label || name}{" "}
+            {isProductPage && product
+              ? product.productId.name
+              : displayName?.label || name}{" "}
           </Typography>
         ) : (
           <Link
