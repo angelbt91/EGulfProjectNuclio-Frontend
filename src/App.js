@@ -41,7 +41,7 @@ function App() {
           <Route exact path="/productformpage">
             <ProductFormPage />
           </Route>
-          <Route exact path="/mybidspage">
+          <Route exact path="/me/mybidspage">
             <MyBidsPage />
           </Route>
         </Switch>
