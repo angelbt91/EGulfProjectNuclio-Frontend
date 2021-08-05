@@ -1,9 +1,4 @@
 import Card from "../card/card";
-<<<<<<< HEAD
-import ProductsList from "../comp/product.json";
-
-=======
->>>>>>> 004ad3b878b687587c5d59a370e42816d36a27ae
 import "./roll.css";
 import { useProducts } from "../../hooks/useProducts";
 
