@@ -3,29 +3,29 @@
   margin-top: 22px;
   margin-bottom: 22px;
   margin-left: 170px;
-} */
-/* .card_roll {
+}
+.card_roll {
   display: flex;
-  gap: 30px;
+  gap: 40px;
   flex-wrap: wrap;
+  align-self: auto;
 }
 
 .main_roll > h3 {
-  position: absolute;
-
-  margin-left: 30%;
+  text-align: start;
+  margin-left: 4%;
   font-weight: bold;
   font-size: 24px;
-}
- */
-.titulo_principal {
-  margin-left: 110px;
-  margin-top: 43px;
-  font-size: 24px;
-}
+  margin-left: 1rem;
+} */
 .container_card_roll {
-  margin-left: 60px;
+  margin-top: 40px;
+  margin-left: -187px;
 }
 .card_roll {
-  margin-left: 20px;
+  margin-right: 187px;
+}
+.titulo_principal {
+  font-weight: bold;
+  font-size: 24px;
 }
