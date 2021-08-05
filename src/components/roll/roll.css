@@ -1,4 +1,4 @@
-/* .main_roll {
+.main_roll {
   width: 100%;
   margin-top: 22px;
   margin-bottom: 22px;
@@ -17,8 +17,8 @@
   font-weight: bold;
   font-size: 24px;
   margin-left: 1rem;
-} */
-.container_card_roll {
+}
+/* .container_card_roll {
   margin-top: 40px;
   margin-left: -187px;
 }
@@ -28,4 +28,4 @@
 .titulo_principal {
   font-weight: bold;
   font-size: 24px;
-}
+} */

@@ -8,8 +8,8 @@ import { useAuctions } from "../../hooks/useAuctions";
 const Roll = ({ title }) => {
   const { auctions } = useAuctions("60e7f052df5a6d070e1ad960");
   return (
-    <div className="container_card_roll">
-      <h3 className="titulo_principal">{title}</h3>
+    <div className="main_roll">
+      <h3>{title}</h3>
       <div className="card_roll">
         {auctions &&
           auctions
