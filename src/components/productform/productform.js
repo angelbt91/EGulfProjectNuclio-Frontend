@@ -61,7 +61,7 @@ function ProductForm() {
     if (Object.keys(errors).length !== 0) {
       alert(JSON.stringify(errors));
     } else {
-      fetch("http://localhost:5001/auctions", {
+      fetch("http://localhost:5001/products", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
