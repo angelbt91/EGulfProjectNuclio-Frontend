@@ -15,19 +15,19 @@ const Footer = () => {
 
       <ul className="nav-links">
         <li>
-          <a href="#">Comprar</a>
+          <a href="http://localhost:3000/">Comprar</a>
         </li>
         <li>
-          <a href="#">Vender</a>
+          <a href="http://localhost:3000/">Vender</a>
         </li>
         <li>
-          <a href="#">Contactar con eGulf</a>
+          <a href="http://localhost:3000/">Contactar con eGulf</a>
         </li>
         <li>
-          <a href="#">Acerca de eGulf</a>
+          <a href="http://localhost:3000/">Acerca de eGulf</a>
         </li>
         <li>
-          <a href="#">Politica de Privacidad</a>
+          <a href="http://localhost:3000/">Politica de Privacidad</a>
         </li>
       </ul>
       <hr />
@@ -35,7 +35,7 @@ const Footer = () => {
         <p>&copy; 2020 Landify UI Kit. All rights reserved</p>
         <ul className="social">
           <li>
-            <a href="#">
+            <a href="https://www.instagram.com">
               <img
                 src={InstagramLogo}
                 className="instagram-logo"
@@ -44,7 +44,7 @@ const Footer = () => {
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="https://es-es.facebook.com">
               <img
                 src={FacebookLogo}
                 className="facebook-logo"
@@ -53,7 +53,7 @@ const Footer = () => {
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="https://twitter.com">
               <img
                 src={TwitterLogo}
                 className="twitter-logo"
@@ -62,7 +62,7 @@ const Footer = () => {
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="https://www.youtube.com">
               <img
                 src={YouTubeLogo}
                 className="youtube-logo"
