@@ -1,7 +1,13 @@
 import React from "react";
+import NoAuthorized from "../../components/noauthorized/noauthorized";
 import ProductCreated from "../../components/productcreated/productcreated";
-import "./productcreated.css";
+import "./productcreatedpage.css";
 const ProductCratedPage = () => {
+  if (!localStorage.token) {
+    return(
+      <NoAuthorized />
+    )
+  }
   return (
     <div>
       <ProductCreated />

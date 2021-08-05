@@ -43,8 +43,8 @@ const ProductCreated = () => {
         {auctionByUser &&
           auctionByUser.map((auction) => {
             if (new Date(auction.endingDateTime) < new Date()) {
-              ventas = ventas + auction.startingPrice;
-              productVendidos.push(auction); //needs return. Array.prototype.map() expects a return value from arrow function
+              ventas = ventas + auction.productId.currentPrice;
+              productVendidos.push(auction);
             } else {
               productEnVenta.push(auction); //needs return. Array.prototype.map() expects a return value from arrow function
             }
@@ -75,7 +75,7 @@ const ProductCreated = () => {
                   name={venta.productId.name}
                   nameUser={venta.productId.owner.name}
                   rating={venta.productId.owner.rating}
-                  initprice={venta.startingPrice}
+                  initprice={venta.productId.currentPrice}
                   id={venta._id}
                 />
               ))}
@@ -91,7 +91,7 @@ const ProductCreated = () => {
                   name={vendido.productId.name}
                   nameUser={vendido.productId.owner.name}
                   rating={vendido.productId.owner.rating}
-                  initprice={vendido.startingPrice}
+                  initprice={vendido.productId.currentPrice}
                   id={vendido._id}
                 />
               ))}

@@ -1,0 +1,59 @@
+.cardImage_flag {
+  height: 126px;
+  width: 127px;
+  margin-bottom: 100px;
+}
+.tu_puja {
+  margin-left: 200px;
+  font-size: 14px;
+}
+.puja_maxima {
+  margin-left: 40px;
+  font-size: 14px;
+}
+.acaba_en {
+  margin-left: 40px;
+  font-size: 14px;
+  color: #798590;
+}
+.price_tupuja {
+  font-size: 18px;
+  margin-left: -150px;
+  color: #083D77;
+}
+.price_pujamaxima {
+  font-size: 18px;
+  margin-left: 300px;
+  color: #DA4167;
+}
+.fin_puja {
+  margin-left: 150px;
+  color: #798590;
+  font-size: 14px;
+}
+.card_Name {
+  position: absolute;
+  margin-left: 200px;
+  margin-top: -230px;
+  font-size: 16px;
+}
+.raiting_name {
+  margin-left: 200px;
+  margin-top: -200px;
+  font-size: 14px;
+  color: #798590;
+}
+.card_flag {
+  display: flex;
+  flex-direction: column;
+}
+.info-card-flag {
+  margin-left: 12px;
+}
+.titulos_pujas {
+  display: flex;
+}
+.precios_pujas {
+  display: flex;
+  justify-content: flex-start;
+}
