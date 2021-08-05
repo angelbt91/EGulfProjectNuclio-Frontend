@@ -13,10 +13,12 @@ import FavouritePage from "./pages/favouritepage/favouritepage";
 // import CreateProductForm from "./pages/productformpage/productformpage";
 import "./App.css";
 import ProductFormPage from "./pages/productformpage/productformpage";
-import Breadcrumbs from "./components/breadcrumbs/breadcrumbs";
-import ProductCratedPage from "../src/components/productcreated/productcreated";
+
 import MyBidsPage from "./pages/mybidspage/mybidspage";
+import ProductCratedPage from "./pages/productcreatedpage/productcreatedpage";
+import Breadcrumbs from "./components/breadcrumbs/breadcrumbs";
 import SignUpPage from "./pages/signuppage/signuppage";
+
 
 function App() {
   return (
@@ -48,7 +50,7 @@ function App() {
           <Route exact path="/productformpage">
             <ProductFormPage />
           </Route>
-          <Route exact path="/mybidspage">
+          <Route exact path="/me/mybidspage">
             <MyBidsPage />
           </Route>
           <Route exact path="/signup">
