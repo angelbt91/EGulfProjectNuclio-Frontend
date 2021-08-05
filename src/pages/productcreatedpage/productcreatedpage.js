@@ -1,7 +1,7 @@
 import React from "react";
 import NoAuthorized from "../../components/noauthorized/noauthorized";
 import ProductCreated from "../../components/productcreated/productcreated";
-
+import "./productcreated.css";
 const ProductCratedPage = () => {
   if (!localStorage.token) {
     return(

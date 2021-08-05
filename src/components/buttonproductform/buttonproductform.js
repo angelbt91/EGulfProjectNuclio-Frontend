@@ -6,7 +6,7 @@ const ButtonProductForm = ({ getImage }) => {
   const imageSelectorRef = useRef();
   const [uploadimage, setuploadimage] = useState([]);
 
-  const [isDelete, setIsDelete] = useState();
+  // const [isDelete, setIsDelete] = useState();   USE IT OR REMOVE IT
 
   const handleBin = () => {
     setuploadimage("");
@@ -22,9 +22,8 @@ const ButtonProductForm = ({ getImage }) => {
       setuploadimage(file.target.result);
       getImage(file.target.result);
     };
-    {
-      reader.readAsDataURL(event.target.files[0]) && uploadimage();
-    }
+
+    reader.readAsDataURL(event.target.files[0]) && uploadimage();
   };
   return (
     <div className="container_img_picker">
@@ -44,9 +43,10 @@ const ButtonProductForm = ({ getImage }) => {
             onClick={handleClick}
             //onMouseEnter={handleBin}
             href="None"
+            alt="button to upload images"
           />
           <div className="delete_image_icon" onClick={handleBin}>
-            <img src={Bin} className="bin_label" />
+            <img src={Bin} className="bin_label" alt="bin" />
           </div>
         </div>
       ) : (

@@ -5,9 +5,9 @@ import Card from "../card/card";
 import { API_ROOT } from "../../utils/apiHost/apiHost";
 
 const ProductCreated = () => {
-  const url = `${API_ROOT}users/me/productcreatedpage`;
   const [auctionByUser, setAuctionByUser] = useState(false);
   useEffect(() => {
+    const url = `${API_ROOT}users/me/productcreatedpage`;
     fetch(url, {
       method: "GET",
       headers: {
@@ -31,7 +31,9 @@ const ProductCreated = () => {
       });
   }, []);
 
+  // const [acumulador, setAcumulador] = useState(0);   USE IT OR REMOVE IT
   let ventas = 0;
+  // let vendido = 0;    USE IT OR REMOVE IT
   let productVendidos = [];
   let productEnVenta = [];
 
@@ -44,7 +46,7 @@ const ProductCreated = () => {
               ventas = ventas + auction.productId.currentPrice;
               productVendidos.push(auction);
             } else {
-              productEnVenta.push(auction);
+              productEnVenta.push(auction); //needs return. Array.prototype.map() expects a return value from arrow function
             }
           })}
         <h1 className="titulo_box">Mis articulos en venta</h1>
