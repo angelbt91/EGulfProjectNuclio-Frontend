@@ -21,7 +21,7 @@
   color: #e70f45;
   font-weight: bold;
   width: 68px;
-  margin-left: 8.5rem;
+  margin-left: 10rem;
   margin-top: -2rem;
 }
 .container:hover {
@@ -32,7 +32,7 @@
   position: absolute;
   width: 20px;
   height: 20px;
-  margin-left: 5.5rem;
+  margin-left: 13rem;
   margin-top: -2.2rem;
 
   cursor: pointer;
@@ -43,17 +43,19 @@
   width: 20px;
   height: 20px;
   margin-top: -2.2rem;
-  margin-left: -2rem;
+  margin-left: 5rem;
 }
 .nameUser_card {
   margin-right: 8.5rem;
   margin-top: 0.3em;
+  margin-left: 1rem;
 }
 .rating_card {
   margin-left: 2rem;
   margin-top: -2.2em;
-  margin-left: 0rem;
+  margin-left: 6.5rem;
 }
 .name_card {
   margin-top: 0.3rem;
+  margin-left: 4.5rem;
 }

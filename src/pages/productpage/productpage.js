@@ -46,8 +46,10 @@ const ProductPage = () => {
             rating={ProductsList[5].rating} //TODO: cuando exista el rating de user, añadirlo aquí (y popular en back)
           />
         )}
-        <div className="rollproductContainer">
-          <Roll title="Artículos similares" />
+        <div className="rollproduct_main">
+          <div className="rollproductContainer">
+            <Roll title="Artículos similares" />
+          </div>
         </div>
       </div>
     </div>
