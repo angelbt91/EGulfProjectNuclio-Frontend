@@ -2,9 +2,12 @@ import "./catselector.css";
 import { useState, useEffect, useRef } from "react";
 import React from "react";
 
-const catSelector = () => {
+const CatSelector = ({ getCategory }) => {
   const [selectedCategoriers, setSelectedCategories] = useState([]);
   const reference = useRef();
+  const [lastSelectedCategory, setLastCategory] = useState(
+    "Select the category"
+  );
 
   const CategorySelector = ({ options, onChange }) => {
     if (options.length !== 0) {
@@ -13,9 +16,12 @@ const catSelector = () => {
           onChange={(e) => onChange(e.target.value)}
           className="form_main_category"
         >
-          <option>Select the category</option>
           {options.map((option) => (
-            <option key={option} value={option}>
+            <option
+              key={option}
+              selected={selectedCategoriers.includes(option)}
+              value={option}
+            >
               {option}
             </option>
           ))}
@@ -36,11 +42,7 @@ const catSelector = () => {
     const categoryname = reference.current;
     console.log(categoryname);
     const parent = selectedCategoriers[selectedCategoriers.length - 1];
-    fetch(`http://localhost:5001/categories/searchName/${parent}`, {
-      method: "GET",
-      "Content-Type": "application/json",
-      headers: {},
-    })
+    fetch(`http://localhost:5001/categories/searchName/${parent}`)
       .then((res) => res.json())
       .then((json) => {
         let category = json;
@@ -57,6 +59,10 @@ const catSelector = () => {
           }),
         })
           .then((res) => res.json())
+          .then((json) => {
+            setLastCategory(json["name"]);
+            getCategory(lastSelectedCategory);
+          })
           .catch((errors) => console.log(JSON.stringify(errors)));
       })
       .catch((error) => {
@@ -68,11 +74,7 @@ const catSelector = () => {
     const [subcateogryOptions, setSubcategoryOptions] = useState([]);
     // Haz el useEffect con el fetch a las categorias de la selectedSubcategory
     useEffect(() => {
-      fetch(`http://localhost:5001/categories/name/${selectedSubcategory}`, {
-        method: "GET",
-        "Content-Type": "application/json",
-        headers: {},
-      })
+      fetch(`http://localhost:5001/categories/name/${selectedSubcategory}`)
         .then((res) => res.json())
         .then((json) => {
           let pushList = json;
@@ -113,16 +115,17 @@ const catSelector = () => {
           console.error(error);
         });
     }, []);
+
     return (
       <CategorySelector options={subcateogryOptions} onChange={onChange} />
     );
   };
 
   return (
-    <div>
+    <div className="product_container1">
       <MainCategories
-        key={"jajaxd"}
-        onChange={(selected) => setSelectedCategories([selected])}
+        key={"llave"}
+        onChange={(selected) => {setSelectedCategories([selected]);getCategory(selected)}}
       />
       {selectedCategoriers.map((subcategory, index) => {
         return (
@@ -133,6 +136,7 @@ const catSelector = () => {
                 ...selectedCategoriers.slice(0, index + 1), //de esta forma cualquier cambio destruye lo que viene después,ya que cada paso carga subcategorias según la selección
                 selected,
               ]);
+              getCategory(selected);
             }}
           />
         );
@@ -147,4 +151,4 @@ const catSelector = () => {
   );
 };
 
-export default catSelector;
+export default CatSelector;
