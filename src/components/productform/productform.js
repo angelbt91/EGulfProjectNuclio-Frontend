@@ -124,7 +124,7 @@ const ProductForm = () => {
 
   const [imageArray, setImageArray] = useState([]);
 
-  const ProductFormValues = {
+  /*  const ProductFormValues = {      USE IT OR REMOVE IT
     name: String, //product
     description: String, //product
     images: String,
@@ -134,7 +134,7 @@ const ProductForm = () => {
     usersFavs: [],
     createdAt: Date.now,
     updateAt: Date.now,
-  };
+  }; */
 
   const AuctionFormValues = {
     name: String, //product

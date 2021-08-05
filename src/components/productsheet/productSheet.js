@@ -1,4 +1,3 @@
-import BidButton from "../bidbutton/bidButton";
 import TitleProduct from "../titleproduct/titleProduct";
 import "./productSheet.css";
 import { useState } from "react";
