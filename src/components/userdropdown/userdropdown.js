@@ -56,7 +56,7 @@ const UserDropdown = ({ user }) => {
             className="dropdown_item"
             onClick={() => {
               localStorage.setItem("token", "");
-              history.push("/");
+              history.push("/Login");
             }}
           >
             Log out
