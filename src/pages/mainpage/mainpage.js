@@ -13,7 +13,7 @@ const MainPage = () => {
 
       <AdBanner />
 
-      <Roll title="Articulos vistos recientemente" />
+      <Roll title="Articulos más visitados" />
       <Roll title="Televisores" />
     </div>
   );
