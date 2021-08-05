@@ -9,7 +9,7 @@ const UserDropdown = ({ user }) => {
 
   const [showDropdown, setShowDropdown] = useState(false);
 
-  useEffect(() => {
+  /*  useEffect(() => {
     fetch(`${API_ROOT}users/userId`, {
       method: "GET",
       headers: {
@@ -26,7 +26,7 @@ const UserDropdown = ({ user }) => {
       })
       .then(() => {});
   }, []);
-
+ */
   return (
     <div className="userDropdown_container">
       <div
