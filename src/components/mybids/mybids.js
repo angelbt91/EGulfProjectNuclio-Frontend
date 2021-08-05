@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./mybids.css";
 import { API_ROOT } from "../../utils/apiHost/apiHost";
-import Card from "../card/card";
 import CardFlag from "../cardflag/carflag";
 
 const MyBids = () => {
@@ -32,7 +31,13 @@ const MyBids = () => {
       console.error(error);
     });
   },[]);
-console.log(bids)
+
+function getLastBidOfUser(bids) {
+  const myBids = bids.auctionId.bidsAuction.filter(bid => bid.userId === bids.userId)
+  return myBids[myBids.length - 1];
+}
+
+
   return (
     <div>
       <h1 className="titulo_mispujas">Mis pujas</h1>
@@ -53,16 +58,11 @@ console.log(bids)
           name={bids.auctionId.productId.name}
           owner={bids.auctionId.productId.owner.name}
           id={bids.auctionId.productId._id}
-          yourbid={bids.auctionId.bidsAuction[bids.auctionId.bidsAuction.length -1].bidAmount}
+          yourbid={getLastBidOfUser(bids).bidAmount}
           maxbid={bids.auctionId.productId.currentPrice}
-          />
-
-        
+          dateAuction= {bids.auctionId.endingDateTime}
+          />   
       ))}
-       
-
-       
-
         <p className="Sub_activas_perdiendo">Subastas activas perdiendo</p>
         {bids && bids.losing.map((bids) => (
         <CardFlag
@@ -71,15 +71,11 @@ console.log(bids)
           name={bids.auctionId.productId.name}
           owner={bids.auctionId.productId.owner.name}
           id={bids.auctionId.productId._id}
-          yourbid={bids.auctionId.bidsAuction[bids.auctionId.bidsAuction.length -1].bidAmount}
+          yourbid={getLastBidOfUser(bids).bidAmount}
           maxbid={bids.auctionId.productId.currentPrice}
-          />
-
-        
+          dateAuction= {bids.auctionId.endingDateTime}
+          />      
       ))}
-   
-        
-
         <p className="Sub_activas_perdidas">Subastas activas perdidas</p>
         {bids && bids.lost.map((bids) => (
         <CardFlag
@@ -88,14 +84,11 @@ console.log(bids)
           name={bids.auctionId.productId.name}
           owner={bids.auctionId.productId.owner.name}
           id={bids.auctionId.productId._id}
-          yourbid={bids.auctionId.bidsAuction[bids.auctionId.bidsAuction.length -1].bidAmount}
+          yourbid={getLastBidOfUser(bids).bidAmount}
           maxbid={bids.auctionId.productId.currentPrice}
+          dateAuction= {bids.auctionId.endingDateTime}
           />
-
-        
       ))}
-  
-       
       </div>
     </div>
   );

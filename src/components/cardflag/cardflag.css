@@ -8,17 +8,17 @@
   font-size: 14px;
 }
 .puja_maxima {
-  margin-left: 32px;
+  margin-left: 40px;
   font-size: 14px;
 }
 .acaba_en {
-  margin-left: 32px;
+  margin-left: 40px;
   font-size: 14px;
   color: #798590;
 }
 .price_tupuja {
   font-size: 18px;
-  margin-left: -120px;
+  margin-left: -150px;
   color: #083D77;
 }
 .price_pujamaxima {
@@ -37,15 +37,23 @@
   margin-top: -230px;
   font-size: 16px;
 }
-.star {
-  width: 10px;
-  height: 10px;
-  margin-left: 290px;
-  margin-top: -300px;
-}
 .raiting_name {
   margin-left: 200px;
   margin-top: -200px;
   font-size: 14px;
   color: #798590;
+}
+.card_flag {
+  display: flex;
+  flex-direction: column;
+}
+.info-card-flag {
+  margin-left: 12px;
+}
+.titulos_pujas {
+  display: flex;
+}
+.precios_pujas {
+  display: flex;
+  justify-content: flex-start;
 }

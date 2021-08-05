@@ -8,8 +8,9 @@ import FavouritePage from "./pages/favouritepage/favouritepage";
 import CreateProductForm from "./pages/productformpage/productformpage";
 import "./App.css";
 import ProductFormPage from "./pages/productformpage/productformpage";
-import ProductCratedPage from "../src/components/productcreated/productcreated";
+
 import MyBidsPage from "./pages/mybidspage/mybidspage";
+import ProductCratedPage from "./pages/productcreatedpage/productcreatedpage";
 
 function App() {
   return (

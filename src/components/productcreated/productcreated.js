@@ -31,9 +31,7 @@ const ProductCreated = () => {
       });
   }, []);
 
-  const [acumulador, setAcumulador] = useState(0);
   let ventas = 0;
-  let vendido = 0;
   let productVendidos = [];
   let productEnVenta = [];
 
@@ -43,7 +41,7 @@ const ProductCreated = () => {
         {auctionByUser &&
           auctionByUser.map((auction) => {
             if (new Date(auction.endingDateTime) < new Date()) {
-              ventas = ventas + auction.startingPrice;
+              ventas = ventas + auction.productId.currentPrice;
               productVendidos.push(auction);
             } else {
               productEnVenta.push(auction);
@@ -75,7 +73,7 @@ const ProductCreated = () => {
                   name={venta.productId.name}
                   nameUser={venta.productId.owner.name}
                   rating={venta.productId.owner.rating}
-                  initprice={venta.startingPrice}
+                  initprice={venta.productId.currentPrice}
                   id={venta._id}
                 />
               ))}
@@ -91,7 +89,7 @@ const ProductCreated = () => {
                   name={vendido.productId.name}
                   nameUser={vendido.productId.owner.name}
                   rating={vendido.productId.owner.rating}
-                  initprice={vendido.startingPrice}
+                  initprice={vendido.productId.currentPrice}
                   id={vendido._id}
                 />
               ))}
