@@ -14,7 +14,7 @@ function MyBidsPage() {
   }
   return (
     <div>
-      <Breadcrumbs />
+      {/* <Breadcrumbs /> */}
       <MyBids />
     </div>
   );
