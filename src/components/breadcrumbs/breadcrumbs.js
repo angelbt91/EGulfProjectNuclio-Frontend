@@ -21,7 +21,7 @@ const Breadcrumbs = (props) => {
   console.log(product);
   console.log(id);
   useEffect(() => {
-    fetch(`${API_ROOT}auctions/${id}`)
+    fetch(`${API_ROOT}products/${id}`)
       .then((response) => {
         if (response.status != 200) {
           throw "Product couldn't be found. Check the id!";
@@ -51,7 +51,7 @@ const Breadcrumbs = (props) => {
           <Typography key={name}>
             {" "}
             {isProductPage && product
-              ? product.productId.name
+              ? product.name
               : displayName?.label || name}{" "}
           </Typography>
         ) : (
