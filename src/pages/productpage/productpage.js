@@ -1,4 +1,3 @@
-import BreadCrumber from "../../components/breadcrumber/breadcrumber";
 import "./productpage.css";
 import ProductGallery from "../../components/productGallery/productGallery";
 import ProductsList from "../../components/comp/product.json";
@@ -7,6 +6,7 @@ import Roll from "../../components/roll/roll";
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { API_ROOT } from "../../utils/apiHost/apiHost";
+import Breadcrumbs from "../../components/breadcrumbs/breadcrumbs";
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -33,7 +33,7 @@ const ProductPage = () => {
   return (
     <div>
       <div className="productContainer">
-        <BreadCrumber />
+        <Breadcrumbs />
         {
           <ProductGallery /> /*//TODO: URLimages={product.images} para pasar las imagenes desde productGallery */
         }
