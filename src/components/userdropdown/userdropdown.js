@@ -6,8 +6,22 @@ import { API_ROOT } from "../../utils/apiHost/apiHost";
 
 const UserDropdown = ({ user }) => {
   const history = useHistory();
-
+  // const [refresh, setRefresh] = useState();
   const [showDropdown, setShowDropdown] = useState(false);
+
+  // setRefresh(localStorage.getItem("token"));
+
+  /* const probeToken = () => {
+    if (token === "") {
+      setRefresh(false);
+    } else {
+      setRefresh(true);
+    }
+  }; */
+
+  /* useEffect(() => {
+    window.location.reload();
+  }, [refresh]); */
 
   /*  useEffect(() => {
     fetch(`${API_ROOT}users/userId`, {
@@ -29,16 +43,18 @@ const UserDropdown = ({ user }) => {
  */
   return (
     <div className="userDropdown_container">
-      <div
-        className="userDropdown_anchor"
-        onClick={() => setShowDropdown(!showDropdown)}
-      >
-        <img
-          src={UserAvatar}
-          alt="userPicture"
-          className="userAvatar_container"
-        />
-      </div>
+      {localStorage.getItem("token") !== "" && (
+        <div
+          className="userDropdown_anchor"
+          onClick={() => setShowDropdown(!showDropdown)}
+        >
+          <img
+            src={UserAvatar}
+            alt="userPicture"
+            className="userAvatar_container"
+          />
+        </div>
+      )}
       {showDropdown && (
         <div className="userDropdown_items">
           <div className="dropdown_item" onClick={() => history.push("/")}>
