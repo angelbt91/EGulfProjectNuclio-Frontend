@@ -4,6 +4,7 @@ import ButtonProductForm from "../buttonproductform/buttonproductform";
 import "./productform.css";
 import React, { useState, useEffect, useRef } from "react";
 import CatSelector from "../categoriesselector/catselector";
+import { API_ROOT } from "../../utils/apiHost/apiHost";
 
 const ProductForm = () => {
   const [imageArray, setImageArray] = useState([]);
@@ -65,7 +66,7 @@ const ProductForm = () => {
     if (Object.keys(errors).length !== 0) {
       alert(JSON.stringify(errors));
     } else {
-      fetch("http://localhost:5001/products", {
+      fetch(`${API_ROOT}products`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
