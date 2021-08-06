@@ -13,9 +13,11 @@ import FavouritePage from "./pages/favouritepage/favouritepage";
 // import CreateProductForm from "./pages/productformpage/productformpage";
 import "./App.css";
 import ProductFormPage from "./pages/productformpage/productformpage";
-import Breadcrumbs from "./components/breadcrumbs/breadcrumbs";
-import ProductCratedPage from "../src/components/productcreated/productcreated";
+import SearchPage from "./pages/searchpage/searchpage";
+
 import MyBidsPage from "./pages/mybidspage/mybidspage";
+import ProductCratedPage from "./pages/productcreatedpage/productcreatedpage";
+import Breadcrumbs from "./components/breadcrumbs/breadcrumbs.constants.js";
 import SignUpPage from "./pages/signuppage/signuppage";
 
 function App() {
@@ -47,6 +49,9 @@ function App() {
           </Route>
           <Route exact path="/productformpage">
             <ProductFormPage />
+          </Route>
+          <Route exact path="/searchpage/:id">
+            <SearchPage />
           </Route>
           <Route exact path="/me/mybidspage">
             <MyBidsPage />

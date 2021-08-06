@@ -2,32 +2,35 @@ import "./tabheader.css";
 import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import TabSubHeader from "../tabsubheader/tabsubheader";
+import { Link } from "react-router-dom";
 import { API_ROOT } from "../../utils/apiHost/apiHost";
 
 const agregateCategoriesAndSubcategories = (categoryList) => {
-  const filteredCategories = {};
-  const filteredSubcategories = {};
-  categoryList.forEach((category) => {
-    const hasCategoryParent =
-      category.parentCategory && category.parentCategory !== "";
-    if (!hasCategoryParent) {
-      return (filteredCategories[category.name] = [category._id]);
-    } else {
-      return (filteredSubcategories[category.name] = [category.parentCategory]);
-    }
-  });
-  let finalCategories = {};
-  Object.keys(filteredCategories).forEach((category) => {
-    const categoryToSearch = filteredCategories[category][0];
-    const subcategories = Object.keys(filteredSubcategories).filter(
-      (subcategory) =>
-        filteredSubcategories[subcategory][0] === categoryToSearch
-    );
-    finalCategories[category] = subcategories;
-  });
-  return finalCategories;
+  return categoryList
+    .filter((category) => !category.parentCategory)
+    .map((parentCategory) => ({
+      name: parentCategory.name,
+      id: parentCategory._id,
+      subcategories: [],
+    }))
+    .map((parentCategory) => {
+      const childs = [];
+
+      for (const category of categoryList) {
+        const categoryIsChild =
+          category.parentCategory &&
+          category.parentCategory === parentCategory.id;
+        if (categoryIsChild)
+          childs.push({ name: category.name, id: category._id });
+      }
+
+      parentCategory.subcategories.push(...childs);
+      console.log(parentCategory);
+      return parentCategory;
+    });
 };
-const TabHeader = () => {
+
+const TabHeader = ({ id }) => {
   const [categories, setCategories] = useState();
   const history = useHistory();
   const [selectedCategory, setSelectedCategory] = useState(false);
@@ -51,31 +54,35 @@ const TabHeader = () => {
           <span onClick={() => history.push("/me/favorites")}>FAVORITOS</span>
         </div>
         {categories &&
-          Object.keys(categories).map((category, index) => {
+          categories.map((category, index) => {
             return (
               <div
                 className="_tabheadContainer"
                 onMouseEnter={() => setSelectedCategory(category)}
                 key={`header_container${index}`}
               >
-                <span>{category}</span>
+                <span>{category.name}</span>
               </div>
             );
           })}
         {selectedCategory && (
           <div>
             <TabSubHeader
-              subcategories={
-                categories &&
-                categories[selectedCategory] &&
-                categories[selectedCategory].map((subcategory) => {
+              subcategories={selectedCategory.subcategories.map(
+                (subcategory) => {
                   return (
-                    <div className="_tabSubheadContainer" key={subcategory._id}>
-                      {subcategory}
+                    <div className="_tabSubheadContainer">
+                      <Link
+                        className="_tabSubheadContainer"
+                        id="link"
+                        to={"/searchpage/" + subcategory.id}
+                      >
+                        {subcategory.name}
+                      </Link>
                     </div>
                   );
-                })
-              }
+                }
+              )}
             />
           </div>
         )}

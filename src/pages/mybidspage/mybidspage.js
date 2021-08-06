@@ -1,11 +1,16 @@
 import React from "react";
 import MyBids from "../../components/mybids/mybids";
-import Breadcrumbs from "../../components/breadcrumbs/breadcrumbs";
+import NoAuthorized from "../../components/noauthorized/noauthorized";
+
+// import Breadcrumbs from "../../components/breadcrumbs/breadcrumbs";
 
 function MyBidsPage() {
+  if (!localStorage.token) {
+    return <NoAuthorized />;
+  }
   return (
     <div>
-      <Breadcrumbs />
+      {/* <Breadcrumbs /> */}
       <MyBids />
     </div>
   );

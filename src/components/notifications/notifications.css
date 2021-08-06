@@ -7,6 +7,7 @@
 ._notifContainer > button > img {
   width: 16px;
   height: 18px;
+  margin-left: -5px;
 }
 
 ._notifContainer > button {
@@ -22,5 +23,5 @@
   height: 10px;
   border-radius: 50%;
   margin-bottom: 13.5px;
-  margin-left: 1px;
+  margin-right: 20px;
 }
