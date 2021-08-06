@@ -2,6 +2,8 @@ import "./tabheader.css";
 import { useHistory } from "react-router";
 import { useState, useEffect } from "react";
 import TabSubHeader from "../tabsubheader/tabsubheader";
+import {Link} from "react-router-dom";
+
 const agregateCategoriesAndSubcategories = (categoryList) => {
   return categoryList
       .filter(category => !category.parentCategory)
@@ -18,10 +20,12 @@ const agregateCategoriesAndSubcategories = (categoryList) => {
         return parentCategory;
       });
 };
+
 const TabHeader = ({ id }) => {
   const [categories, setCategories] = useState();
   const history = useHistory();
   const [selectedCategory, setSelectedCategory] = useState(false);
+
   useEffect(() => {
     fetch(`http://localhost:5001/categories`)
       .then((response) => response.json())
@@ -29,6 +33,7 @@ const TabHeader = ({ id }) => {
         setCategories(agregateCategoriesAndSubcategories(json));
       });
   }, []);
+
   return (
     <div>
       <div
@@ -42,39 +47,36 @@ const TabHeader = ({ id }) => {
           <span onClick={() => history.push("/favouritePage")}>FAVORITOS</span>
         </div>
         {categories &&
-          Object.keys(categories).map((category) => {
+          categories.map((category) => {
             return (
               <div
                 className="_tabheadContainer"
                 onMouseEnter={() => setSelectedCategory(category)}
               >
-                <span>{category}</span>
+                <span>{category.name}</span>
               </div>
             );
           })}
         {selectedCategory && (
           <div>
-            <TabSubHeader
-              subcategories={
-                categories &&
-                categories[selectedCategory] &&
-                categories[selectedCategory].map((subcategory) => {
-                  console.log(subcategory);
-                  return (
-                    <div
-                      className="_tabSubheadContainer"
-                      onClick={() => history.push("/searchpage/" + id)}
-                    >
-                      {subcategory}
-                    </div>
-                  );
-                })
-              }
-            />
+              <TabSubHeader
+                  subcategories={
+                      selectedCategory.subcategories.map((subcategory) => {
+                          return (
+                              <div
+                                  className="_tabSubheadContainer"
+                              >
+                                  <Link to={"/searchpage/" + subcategory.id}>{subcategory.name}</Link>
+                              </div>
+                          );
+                      })
+                  }
+              />
           </div>
         )}
       </div>
     </div>
   );
 };
+
 export default TabHeader;
