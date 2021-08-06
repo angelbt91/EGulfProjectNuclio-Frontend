@@ -17,7 +17,7 @@ import SearchPage from "./pages/searchpage/searchpage";
 
 import MyBidsPage from "./pages/mybidspage/mybidspage";
 import ProductCratedPage from "./pages/productcreatedpage/productcreatedpage";
-import Breadcrumbs from "./components/breadcrumbs/breadcrumbs";
+import Breadcrumbs from "./components/breadcrumbs/breadcrumbs.constants.js";
 import SignUpPage from "./pages/signuppage/signuppage";
 
 function App() {

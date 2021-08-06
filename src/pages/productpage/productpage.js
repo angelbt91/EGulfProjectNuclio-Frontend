@@ -6,7 +6,7 @@ import Roll from "../../components/roll/roll";
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { API_ROOT } from "../../utils/apiHost/apiHost";
-import Breadcrumbs from "../../components/breadcrumbs/breadcrumbs";
+import Breadcrumbs from "../../components/breadcrumbs/breadcrumbs.constants";
 
 const ProductPage = () => {
   const { id } = useParams();
