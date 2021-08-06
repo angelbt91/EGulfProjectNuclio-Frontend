@@ -5,9 +5,9 @@ import Card from "../card/card";
 import { API_ROOT } from "../../utils/apiHost/apiHost";
 
 const ProductCreated = () => {
-  const url = `${API_ROOT}users/me/productcreatedpage`;
   const [auctionByUser, setAuctionByUser] = useState(false);
   useEffect(() => {
+    const url = `${API_ROOT}users/me/productcreatedpage`;
     fetch(url, {
       method: "GET",
       headers: {
@@ -31,9 +31,9 @@ const ProductCreated = () => {
       });
   }, []);
 
-  const [acumulador, setAcumulador] = useState(0);
+  // const [acumulador, setAcumulador] = useState(0);   USE IT OR REMOVE IT
   let ventas = 0;
-  let vendido = 0;
+  // let vendido = 0;    USE IT OR REMOVE IT
   let productVendidos = [];
   let productEnVenta = [];
 
@@ -43,10 +43,10 @@ const ProductCreated = () => {
         {auctionByUser &&
           auctionByUser.map((auction) => {
             if (new Date(auction.endingDateTime) < new Date()) {
-              ventas = ventas + auction.startingPrice;
+              ventas = ventas + auction.productId.currentPrice;
               productVendidos.push(auction);
             } else {
-              productEnVenta.push(auction);
+              productEnVenta.push(auction); //needs return. Array.prototype.map() expects a return value from arrow function
             }
           })}
         <h1 className="titulo_box">Mis articulos en venta</h1>
@@ -75,7 +75,7 @@ const ProductCreated = () => {
                   name={venta.productId.name}
                   nameUser={venta.productId.owner.name}
                   rating={venta.productId.owner.rating}
-                  initprice={venta.startingPrice}
+                  initprice={venta.productId.currentPrice}
                   id={venta._id}
                 />
               ))}
@@ -91,7 +91,7 @@ const ProductCreated = () => {
                   name={vendido.productId.name}
                   nameUser={vendido.productId.owner.name}
                   rating={vendido.productId.owner.rating}
-                  initprice={vendido.startingPrice}
+                  initprice={vendido.productId.currentPrice}
                   id={vendido._id}
                 />
               ))}
