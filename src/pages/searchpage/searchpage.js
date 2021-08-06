@@ -47,8 +47,8 @@ const SearchPage = ({ index }) => {
             key={`card${index}`}
             img={product.images[0]}
             name={product.name}
-            rating={product.owner.rating}
             initprice={product.currentPrice}
+            id={product._id}
             nameUser={product.owner.name}
           />
         </div>
