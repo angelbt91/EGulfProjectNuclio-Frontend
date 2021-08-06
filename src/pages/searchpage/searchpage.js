@@ -44,12 +44,12 @@ const SearchPage = ({ index }) => {
       return (
         <div className="card">
           <Card
-            key={`card${index}`}
+            key={product._id}
             img={product.images[0]}
             name={product.name}
             initprice={product.currentPrice}
             id={product._id}
-            nameUser={product.owner.name}
+            nameUser={product.owner && product.owner.name}
           />
         </div>
       );
