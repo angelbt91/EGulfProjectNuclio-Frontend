@@ -54,7 +54,7 @@ const Card = ({
             <img className="star_icon" src={Star} alt="star" />
             <img
               className="heart_icon"
-              src={isFavorite ? HeartRed : Heart}
+              src={isFavorite || usersFavs ? HeartRed : Heart}
               alt="icon-heart"
             />
           </div>
