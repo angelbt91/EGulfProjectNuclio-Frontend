@@ -51,7 +51,7 @@ const TabHeader = ({ id }) => {
           <span onClick={() => history.push("/")}>PORTADA</span>
         </div>
         <div className="_tabheadContainer">
-          <span onClick={() => history.push("/favouritePage")}>FAVORITOS</span>
+          <span onClick={() => history.push("/me/favorites")}>FAVORITOS</span>
         </div>
         {categories &&
           categories.map((category, index) => {
