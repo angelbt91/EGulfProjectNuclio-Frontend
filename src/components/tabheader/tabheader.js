@@ -2,6 +2,8 @@ import "./tabheader.css";
 import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import TabSubHeader from "../tabsubheader/tabsubheader";
+import { API_ROOT } from "../../utils/apiHost/apiHost";
+
 const agregateCategoriesAndSubcategories = (categoryList) => {
   const filteredCategories = {};
   const filteredSubcategories = {};
@@ -30,7 +32,7 @@ const TabHeader = () => {
   const history = useHistory();
   const [selectedCategory, setSelectedCategory] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:5001/categories`)
+    fetch(`${API_ROOT}categories`)
       .then((response) => response.json())
       .then((json) => {
         setCategories(agregateCategoriesAndSubcategories(json));
@@ -50,11 +52,12 @@ const TabHeader = () => {
           <span onClick={() => history.push("/favouritePage")}>FAVORITOS</span>
         </div>
         {categories &&
-          Object.keys(categories).map((category) => {
+          Object.keys(categories).map((category, index) => {
             return (
               <div
                 className="_tabheadContainer"
                 onMouseEnter={() => setSelectedCategory(category)}
+                key={`header_container${index}`}
               >
                 <span>{category}</span>
               </div>
@@ -67,9 +70,14 @@ const TabHeader = () => {
               subcategories={
                 categories &&
                 categories[selectedCategory] &&
-                categories[selectedCategory].map((subcategory) => {
+                categories[selectedCategory].map((subcategory, index) => {
                   return (
-                    <div className="_tabSubheadContainer">{subcategory}</div>
+                    <div
+                      className="_tabSubheadContainer"
+                      key={`subheader_container${index}`}
+                    >
+                      {subcategory}
+                    </div>
                   );
                 })
               }
