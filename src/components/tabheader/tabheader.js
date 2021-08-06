@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import TabSubHeader from "../tabsubheader/tabsubheader";
 import { Link } from "react-router-dom";
+import { API_ROOT } from "../../utils/apiHost/apiHost";
 
 const agregateCategoriesAndSubcategories = (categoryList) => {
   return categoryList
@@ -53,7 +54,7 @@ const TabHeader = ({ id }) => {
           <span onClick={() => history.push("/favouritePage")}>FAVORITOS</span>
         </div>
         {categories &&
-          categories.map((category) => {
+          categories.map((category, index) => {
             return (
               <div
                 className="_tabheadContainer"

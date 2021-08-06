@@ -28,21 +28,22 @@ const ProductPage = () => {
         history.push("/");
       });
   }, [id]);
-  console.log(product);
-
   return (
     <div>
       <div className="productContainer">
-        <Breadcrumbs />
+        {/* <Breadcrumbs /> */}
         {
-          <ProductGallery /> /*//TODO: URLimages={product.images} para pasar las imagenes desde productGallery */
+          <ProductGallery
+            img={product?.images}
+          /> /*//TODO: URLimages={product.images} para pasar las imagenes desde productGallery */
         }
         {product && (
           <ProductSheet
             title={product.name}
             description={product.description}
             initprice={product.currentPrice}
-            iduser={product.owner.name}
+            // iduser={product.owner.name}
+            img={product.images}
             rating={ProductsList[5].rating} //TODO: cuando exista el rating de user, añadirlo aquí (y popular en back)
           />
         )}
