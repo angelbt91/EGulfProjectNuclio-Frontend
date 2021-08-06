@@ -1,5 +1,5 @@
 import "./userdropdown.css";
-import UserAvatar from "../../assets/UserAvatar.png";
+import marcianito from "../../assets/marcianito.jpeg";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { API_ROOT } from "../../utils/apiHost/apiHost";
@@ -49,7 +49,7 @@ const UserDropdown = ({ user }) => {
           onClick={() => setShowDropdown(!showDropdown)}
         >
           <img
-            src={UserAvatar}
+            src={marcianito}
             alt="userPicture"
             className="userAvatar_container"
           />
