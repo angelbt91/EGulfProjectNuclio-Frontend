@@ -51,6 +51,7 @@ const ProductForm = () => {
   console.log(imgUrls);
 
   const onSubmit = async (data) => {
+    console.log(data)
     for (const img of imageArray) {
       const image = await submitImage(img);
       imgUrls.push(image.secure_url);
