@@ -38,7 +38,6 @@ const TabHeader = () => {
         setCategories(agregateCategoriesAndSubcategories(json));
       });
   }, []);
-  console.log(selectedCategory);
   return (
     <div>
       <div
@@ -49,7 +48,7 @@ const TabHeader = () => {
           <span onClick={() => history.push("/")}>PORTADA</span>
         </div>
         <div className="_tabheadContainer">
-          <span onClick={() => history.push("/favouritePage")}>FAVORITOS</span>
+          <span onClick={() => history.push("/me/favorites")}>FAVORITOS</span>
         </div>
         {categories &&
           Object.keys(categories).map((category, index) => {
@@ -63,19 +62,15 @@ const TabHeader = () => {
               </div>
             );
           })}
-        {console.log(categories && categories.selectedCategory)}
         {selectedCategory && (
           <div>
             <TabSubHeader
               subcategories={
                 categories &&
                 categories[selectedCategory] &&
-                categories[selectedCategory].map((subcategory, index) => {
+                categories[selectedCategory].map((subcategory) => {
                   return (
-                    <div
-                      className="_tabSubheadContainer"
-                      key={`subheader_container${index}`}
-                    >
+                    <div className="_tabSubheadContainer" key={subcategory._id}>
                       {subcategory}
                     </div>
                   );
