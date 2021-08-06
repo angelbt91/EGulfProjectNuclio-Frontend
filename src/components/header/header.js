@@ -16,7 +16,6 @@ const Header = () => {
       <div className="_rightHeader">
         <LoginButton />
         <Notifications />
-        <ShoppingCart />
         <UserDropdown />
       </div>
     </div>
