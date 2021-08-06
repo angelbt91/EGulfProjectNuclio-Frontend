@@ -4,6 +4,7 @@ import Card from "../../components/card/card";
 import TabHeader from "../../components/tabheader/tabheader";
 import "./searchpage.css";
 import ReactPaginate from "react-paginate";
+import Filter from "../../components/filter/filter";
 const SearchPage = () => {
   const [isProductSearched, setIsProductSearched] = useState();
   const { id } = useParams();
@@ -20,12 +21,18 @@ const SearchPage = () => {
       .then((json) => setIsProductSearched(json))
 
       .catch((error) => {});
-  }, []);
+  }, [id]);
   console.log(isProductSearched);
 
   const [pageNumber, setPageNumber] = useState(0); //in which page we are
   const productPerPage = 12;
   const pagesVisited = pageNumber * productPerPage;
+  const pageCount = Math.ceil(
+    isProductSearched && isProductSearched.length / productPerPage
+  );
+  const pageChange = ({ selected }) => {
+    setPageNumber(selected);
+  };
 
   const displayProducts =
     isProductSearched &&
@@ -36,61 +43,34 @@ const SearchPage = () => {
             img={product.images[0]}
             name={product.name}
             initprice={product.currentPrice}
-            nameUser={product.owner?.name}
+            nameUser={product.owner.name}
           />
         </div>
       );
     });
-  const pageCount = Math.ceil(
-    isProductSearched && isProductSearched.length / productPerPage
-  );
-  const pageChange = ({ selected }) => {
-    setPageNumber(selected);
-  };
+
   return (
     <div>
+      <div>
+        <Filter />
+      </div>
       <TabHeader />
       <div className="cardsContainer">
         {displayProducts}
-        <ReactPaginate
-          previousLabel={"<"}
-          nextLabel={">"}
-          pageCount={pageCount}
-          onPageChange={pageChange}
-          containerClassName={"paginationContainer"}
-          pageClassName={"pageNumber"}
-          previousLinkClassName={"previousButton"}
-          nextLinkClassName={"nextButton"}
-          activeClassName={"paginationActive"}
-        />
-        {/* {isProductSearched &&
-          isProductSearched.map((product) => {
-            return (
-              <div className="card">
-                <Card
-                  images={product.images}
-                  name={product.name}
-                  initprice={product.startPrice}
-                  id={product._id}
-                  nameUser={product.owner}
-                />
-              </div>
-            );
-          })} */}
+        <div>
+          <ReactPaginate
+            previousLabel={"<"}
+            nextLabel={">"}
+            pageCount={pageCount}
+            onPageChange={pageChange}
+            containerClassName={"paginationContainer"}
+            pageClassName={"pageNumber"}
+            previousLinkClassName={"previousButton"}
+            nextLinkClassName={"nextButton"}
+            activeClassName={"paginationActive"}
+          />
+        </div>
       </div>
-      {/*  <div>
-        {isProductSearched &&
-          isProductSearched
-            .map((product) => product)
-            .filter((product) => {
-              console.log(isProductSearched);
-              if (product.initprice < 5) {
-                return "IT'S cheap!!";
-              } else {
-                return "sorry";
-              }
-            })}
-      </div> */}
     </div>
   );
 };

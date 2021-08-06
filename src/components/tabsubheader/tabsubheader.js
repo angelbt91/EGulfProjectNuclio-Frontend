@@ -1,6 +1,6 @@
 import React from "react";
 import "./tabsubheader.css";
-const TabSubHeader = ({ subcategories, id }) => {
+const TabSubHeader = ({ subcategories }) => {
   return (
     <div className="_subheadContainerPosition">
       <div className="_subheadContainer">{subcategories}</div>
