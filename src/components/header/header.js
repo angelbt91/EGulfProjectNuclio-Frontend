@@ -4,6 +4,7 @@ import Searcher from "../searcher/searcher";
 import Notifications from "../notifications/notifications";
 import ShoppingCart from "../shoppingCart/shoppingCart";
 import LoginButton from "../botonlogin/botonlogin";
+import UserDropdown from "../userdropdown/userdropdown";
 
 const Header = () => {
   return (
@@ -15,7 +16,7 @@ const Header = () => {
       <div className="_rightHeader">
         <LoginButton />
         <Notifications />
-        <ShoppingCart />
+        <UserDropdown />
       </div>
     </div>
   );
