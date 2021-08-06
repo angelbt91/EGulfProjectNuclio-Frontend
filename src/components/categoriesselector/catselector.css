@@ -27,3 +27,16 @@
   border: none;
   color: #da4167;
 }
+
+.product_container1 {
+  width: 1166px;
+  height: 153px;
+  border: 1px solid #e5e5e5;
+  background: #f9f9f9;
+
+  display: flex;
+  justify-content: flex-start;
+  gap: 61px;
+  margin-left: 136px;
+  margin-top: 41px;
+}
