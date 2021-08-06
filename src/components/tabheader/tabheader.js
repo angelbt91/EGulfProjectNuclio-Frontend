@@ -34,7 +34,7 @@ const TabHeader = ({ id }) => {
   const history = useHistory();
   const [selectedCategory, setSelectedCategory] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:5001/categories`)
+    fetch(`${API_ROOT}categories`)
       .then((response) => response.json())
       .then((json) => {
         setCategories(agregateCategoriesAndSubcategories(json));
@@ -54,11 +54,11 @@ const TabHeader = ({ id }) => {
         </div>
         {categories &&
           categories.map((category) => {
-            console.log(categories);
             return (
               <div
                 className="_tabheadContainer"
                 onMouseEnter={() => setSelectedCategory(category)}
+                key={`header_container${index}`}
               >
                 <span>{category.name}</span>
               </div>

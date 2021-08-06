@@ -1,15 +1,14 @@
-import React from "react";
 import { useEffect, useState } from "react";
 import { API_ROOT } from "../utils/apiHost/apiHost";
 
-export const useAuctions = (userId) => {
-  const url = `${API_ROOT}auctions`;
-  const userUrl = `${API_ROOT}auctions/user/${userId}`;
-  const [auctions, setAuctions] = useState(undefined);
-  const [refreshAuctions, setRefreshAuctions] = useState(false);
+export const useProducts = (userId) => {
+  const url = `${API_ROOT}products`;
+  const userUrl = `${API_ROOT}products/user/${userId}`;
+  const [products, setProducts] = useState(undefined);
+  const [refreshProducts, setRefreshProducts] = useState(false);
 
   const handleRefresh = () => {
-    setRefreshAuctions(!refreshAuctions);
+    setRefreshProducts(!refreshProducts);
   };
 
   useEffect(() => {
@@ -22,13 +21,13 @@ export const useAuctions = (userId) => {
         }
       })
       .then((data) => {
-        let auctionUser = data;
-        setAuctions(auctionUser);
+        let productUser = data;
+        setProducts(productUser);
       })
       .catch((error) => {
         console.error(error);
       });
-  }, [refreshAuctions]);
+  }, [refreshProducts]);
 
-  return { auctions, handleRefresh };
+  return { products, handleRefresh };
 };
