@@ -1,0 +1,28 @@
+.userDropdown_items {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: #fcfcfc;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 50;
+  right: 15px;
+}
+
+.userDropdown_anchor {
+  cursor: pointer;
+  border-radius: 100%;
+}
+.dropdown_item {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.userAvatar_container {
+  position: relative;
+  border-radius: 100%;
+  width: 52px;
+  height: 52px;
+}

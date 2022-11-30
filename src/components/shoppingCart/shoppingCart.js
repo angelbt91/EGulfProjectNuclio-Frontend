@@ -8,7 +8,7 @@ const ShoppingCart = () => {
         <img src={Cart} alt="" />
         <span className="_spanShopping">SHOPPING CART</span>
       </button>
-      <span className="_shopcartCounter">2</span>
+      {/* <span className="_shopcartCounter">2</span> */}
     </div>
   );
 };
